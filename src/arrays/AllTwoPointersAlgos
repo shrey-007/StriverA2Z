@@ -1,0 +1,2 @@
+1) one at start other at end and we start swapping them and then i++,j--=>reverse an array
+2) one points to current unique element and other iterates all over= remove duplicates from sorted array
