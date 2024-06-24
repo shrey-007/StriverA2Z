@@ -10,10 +10,9 @@ public class RemoveOutermostParentheses {
 
         int count=0;
         int n=s.length();
-        char arr[]=s.toCharArray();
 
         for(int i=0;i<n;i++){
-            char curr=arr[i];
+            char curr=s.charAt(i);
             if(curr=='('){count++;}
             else{
                 // means ki closing bracket hai
