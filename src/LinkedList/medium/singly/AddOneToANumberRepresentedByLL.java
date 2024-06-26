@@ -25,7 +25,9 @@ public class AddOneToANumberRepresentedByLL {
         // we have to add 1 so this is the base case
         if(node==null){return 1;}
 
+        // dekho sabse pehle function call ho rhi hai means sabse pehle vo last node tak jaaega i.e 9 tak (5->3->9)
         int carry=func(node.next);
+        // Is ke baad ki saari lines function call ke baad likhi hai means vaapis aate hue execute hogi (9->3->5) and apan ko isi order mai calculations krni thi
         int result=node.value+carry;
 
         if(result>=10){
