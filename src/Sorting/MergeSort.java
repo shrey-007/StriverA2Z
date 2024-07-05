@@ -1,6 +1,9 @@
 package Sorting;
 
 public class MergeSort {
+
+    // TC-nlogn(always)
+    // SC-n(always)
     public static void merge(int arr[],int start,int mid,int end){
         int left[]=new int[mid-start+1];
         int right[]=new int[end-mid];

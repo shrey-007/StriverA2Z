@@ -41,7 +41,7 @@ public class QuickSort {
             if(arr[i]<pivotElement){count++;}
         }
 
-        //remembe start is not always 0 toh start ko add kro
+        //remember start is not always 0 toh start ko add kro
         int pivotElementIndex=start+count;
 
         //swap start and pivotElementIndex
