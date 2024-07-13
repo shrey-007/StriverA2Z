@@ -24,5 +24,12 @@ public class ReverseDoublyLinkedList {
         node.next=node.previous;
         node.previous=temp;
     }
+    /**
+     *  A better way of doing this-:
+     *  If the question was reverse an array/string toh easily ho jaata toh DLL bhi array jaisa hi hai coz usme bhi aage peeche jaa skte hai
+     *  i=0;j=n-1; then swap(i,j) then i++ j--
+     *  Ese hi isme krlo i=head; j=tail(iterate to find tail) the swap value of i,j then i=i.next ; j=j.prev;
+     *
+     * */
 
 }

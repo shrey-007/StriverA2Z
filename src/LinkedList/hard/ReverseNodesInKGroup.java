@@ -3,6 +3,7 @@ package LinkedList.hard;
 import LinkedList.implementation.singly.Node;
 
 public class ReverseNodesInKGroup {
+    /** Pure Brute Force */
 
     // Function to reverse nodes in groups of K
     static Node kReverse(Node head, int k) {

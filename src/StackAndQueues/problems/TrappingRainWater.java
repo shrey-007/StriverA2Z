@@ -4,59 +4,102 @@ import java.util.Arrays;
 import java.util.Stack;
 
 public class TrappingRainWater {
+
+    /**
+     * Concept-:
+     * water trapped at i = min(largest element on left,larget element on right)-height[i]
+     * And i am saying largest element. Isme NGE ka concept use nhi hoga
+     * */
+
+    /**
+     * Most brute force approach is-:
+     * 1) ith index pr jaao and left mai max height dhundo, right mai dhundo fir unka min lo and usme se apni heigth subtract kro
+     * 2) utni height ka water ith index mai hoga and width sabki 1 hi hai
+     * 3) Also leftMax and rigthMax current element khud bhi ho skta hai
+     * */
     public static int trap(int[] height) {
 
         int ans=0;
 
-        int nge[]=nextGreaterIndexes(height);
+        for (int i = 0; i < height.length; i++) {
 
-        for (int i = 1; i < height.length; i++) {
-            int leftHeight=height[i];
-            if(nge[i]!=-1){
-                int rightHeight=height[nge[i]];
-                int width=nge[i]-i-1;
-                ans=ans+(width*Math.min(leftHeight,rightHeight));
+            int leftLargestHeight=Integer.MIN_VALUE;
+            int rightLargestHeight=Integer.MIN_VALUE;
+
+            for (int j = 0; j <=i; j++) {
+                if(leftLargestHeight<height[j]){leftLargestHeight=height[j];}
             }
+
+            for (int j = i; j <height.length; j++) {
+                if(rightLargestHeight<height[j]){rightLargestHeight=height[j];}
+            }
+
+            int minOfBoth=Math.min(leftLargestHeight,rightLargestHeight);
+
+            int heightOfWater=minOfBoth-height[i];
+
+            ans=ans+heightOfWater;
+
         }
 
         return ans;
-
     }
 
+    /**
+     * Method2-: Based on same concept bas is baar har element ke liye baar baar leftMax,rightMax nhi nikala
+     * 1) Ek prefixMax array banaya jo ki store krega ki current element tak konsi height max thi
+     * 2) Ek suffixMax array banaya jo ki store krega ki current element ke baad se konsi height max hogi
+     * 3) leftMax=prefixMax[i]; rightMax=suffixMax[i]
+     * */
 
-    public static int[] nextGreaterIndexes(int nums[]){
+    public static int trap2(int height[]){
 
-        int [] nge=new int[nums.length];
-        Stack<Integer> stack=new Stack<>();
+        int ans=0;
 
-        // traverse whole array to find nge of all elements
-        for (int i = 0; i < nums.length; i++) {
+        int prefixMax[]=new int[height.length];
+        int suffixMax[]=new int[height.length];
 
-            int currElement=nums[i];
+        int max=Integer.MIN_VALUE;
 
-            // jin bhi element se currElement bada hai un sab ka nge hai voh
-            while (!stack.isEmpty() && nums[stack.peek()]<currElement){
-                // nge banao
-                nge[stack.peek()]=i;
-                // pop kro coz unka nge pata pad chuka hai
-                stack.pop();
+        for (int i = 0; i < height.length; i++) {
+            if(max<height[i]){
+                max=height[i];
             }
-            // ab us element ko stack mai daalo jisse vo apna nge find kr ske
-            stack.add(i);
+            prefixMax[i]=max;
         }
 
-        // remaining saare elements jo stack mai hai unka nge -1 hoga
-        while (!stack.isEmpty()){
-            nge[stack.pop()]=-1;
+        max=Integer.MIN_VALUE;
+
+        for (int i = height.length-1; i >=0; i--) {
+            if(max<height[i]){
+                max=height[i];
+            }
+            suffixMax[i]=max;
         }
 
-        return nge;
+
+        for (int i = 0; i < height.length; i++) {
+
+            int leftLargestHeight=prefixMax[i];
+            int rightLargestHeight=suffixMax[i];
+
+            int minOfBoth=Math.min(leftLargestHeight,rightLargestHeight);
+
+            int heightOfWater=minOfBoth-height[i];
+
+            ans=ans+heightOfWater;
+
+        }
+
+        return ans;
     }
+
 
 
     public static void main(String[] args) {
         int height[]={0,1,0,2,1,0,1,3,2,1,2,1};
         System.out.println(trap(height));
+        System.out.println(trap2(height));
 
     }
 

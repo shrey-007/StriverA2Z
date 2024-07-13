@@ -15,11 +15,11 @@ public class SortLL {
         middle.next = null;
 
         // Recursively sort each half
-        Node left = mergeSort(head);
-        Node right = mergeSort(nextToMiddle);
+        Node leftHead = mergeSort(head);
+        Node rightHead = mergeSort(nextToMiddle);
 
         // Merge the sorted halves
-        Node sortedList = merge(left, right);
+        Node sortedList = merge(leftHead, rightHead);
         return sortedList;
     }
 

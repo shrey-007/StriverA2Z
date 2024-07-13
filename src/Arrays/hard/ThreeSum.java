@@ -52,6 +52,7 @@ public List<List<Integer>> threeSum2(int[] nums) {
         HashSet<Integer> hashSet=new HashSet<>();
 
         // this is the second pointer j
+        // Now this question is 2SUM bas i+1 se n tak ke liye lagana 2 sum 0 to n tak ke liye nhi
         // Important thing is i, j will take all possible combinations of two elements means i,j will form a full n2 loop
 
 

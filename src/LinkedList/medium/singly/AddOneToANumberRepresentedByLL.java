@@ -45,6 +45,12 @@ public class AddOneToANumberRepresentedByLL {
         }
     }
 
+    public static void main(String[] args) {
+//        int carry=func(node);
+        // agar carry 0 hai toh head return krdo
+        // agar carry 1 hai toh new node banao having value carry and use head banao and return kro
+    }
+
     /** DRY RUN IT IF YOU DON'T UNDERSTAND */
 
 

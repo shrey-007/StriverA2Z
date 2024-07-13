@@ -48,54 +48,9 @@ public class CountNumberOfSubstrings {
         return ans;
     }
 
-    // two pointer approach
-
-    public static long substrCount2(String s,int k){
-        long ans=0;
-        int n=s.length();
-
-        int start=0;
-        int end=0;
-
-        HashMap<Character,Integer> hashMap=new HashMap<>();
-
-        while (end<n){
-            char curr=s.charAt(end);
-
-            if(hashMap.containsKey(curr)){hashMap.put(curr,hashMap.get(curr)+1);}
-            else{hashMap.put(curr,1);}
-
-            if(hashMap.size()==k){
-                // means this is the answer so increase the count
-                ans++;
-                end++;
-            }
-            else if(hashMap.size()<k){
-                // means ki abhi aur distinct characters chaiye hai toh aage jaao
-                end++;
-            }
-            else{
-                // means ki ab jyaada distinct characters ho gye
-                // toh start se character hatao jab tak kam ni ho jaate
-                while (hashMap.size()>k){
-                    char sc=s.charAt(start);
-                    hashMap.put(sc,hashMap.get(sc)-1);
-                    if(hashMap.get(sc)==0){hashMap.remove(sc);}
-                    start++;
-                }
-            }
-        }
-
-        if(hashMap.size()==k){ans++;}
-
-        return ans;
-    }
-
     public static void main(String[] args) {
-//        System.out.println(substrCount2("aacaebceaac",4));
-//        System.out.println(substrCount2("aba",2));
-        System.out.println(substrCount2("ecbaddce",3));
-        System.out.println(substrCount2("abaaca",1));
-        System.out.println(substrCount2("aacaebceaac",4));
+        System.out.println(substrCount("aacaebceaac",4));
+        System.out.println(substrCount("aba",2));
+
     }
 }
