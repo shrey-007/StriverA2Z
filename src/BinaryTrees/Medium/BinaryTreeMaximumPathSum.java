@@ -13,36 +13,33 @@ import BinaryTrees.Implementation.Node;
  * */
 public class BinaryTreeMaximumPathSum {
 
+    /**
+     * 1) Dekho ans mai apan ko max path sum chaiye hai jo ki leftSum+rightSum+node.val hoga but
+     *    usko nikaalne ke liye apan leftSum, rightSum call kr rhe hai jo ye return krege ki left node se ek side ka sum
+     *    kitna hai and right node se ek side ka sum kitna hai. Isliye return mai Math.max(leftSum,rightSum)+node.val kra hai
+     * 2) Ab left node se ek side ka sum kitna hai iska matlab kya hai toh iske liye dry run krte hai-:
+     * */
+
     public int height(Node node,int [] ans){
 
         if(node==null){return 0;}
 
-        // find left sum
-        int leftSum=height(node.left,ans);
+        // find left path sum
+        int leftSum=Math.max(0,height(node.left,ans));
 
-        // find right sum
-        int rightSum=height(node.right,ans);
+        // find right path sum
+        int rightSum=Math.max(0,height(node.right,ans));
 
         // calculate current path sum and update ans
-        ans[0]=Math.max(leftSum+rightSum+node.val,ans[0]);
-        // node khud bhi answer ho skta hai[2,-1] isme 2 khud hi answer hai
-        ans[0]=Math.max(node.val,ans[0]);
-        ans[1]=Math.max(leftSum+rightSum+node.val,ans[1]);
-        ans[1]=Math.max(node.val,ans[1]);
+        ans[0]=Math.max(ans[0],leftSum+rightSum+node.val);
 
-        return leftSum+rightSum+node.val;
+        return Math.max(leftSum,rightSum)+node.val;
     }
 
     public int maxPathSum(Node root) {
-        int ans[]=new int[2];
+        int ans[]=new int[1];
         ans[1]=Integer.MIN_VALUE;
         height(root,ans);
-
-        if(ans[0]==0){
-            if(ans[1]!=Integer.MIN_VALUE){
-                return ans[1]-Integer.MIN_VALUE;
-            }
-        }
         return ans[0];
     }
 

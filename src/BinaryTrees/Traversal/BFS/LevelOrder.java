@@ -6,6 +6,10 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Queue;
 
+/**
+ * Worst case mai  space complexity O(N/2) hogi jab pefect BT hoga toh saari leaf nodes same level pr hogi toh n/2 leaf nodes hogi
+ * and queue mai poore ek level ke nodes store hoge toh n/2 store hoge
+ * */
 public class LevelOrder {
     public static void func(Node node){
 

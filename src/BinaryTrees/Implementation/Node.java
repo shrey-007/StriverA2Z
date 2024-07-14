@@ -15,4 +15,10 @@ public class Node {
         this.right = right;
     }
 
+    @Override
+    public String toString() {
+        return "Node{" +
+                "val=" + val +
+                '}';
+    }
 }
