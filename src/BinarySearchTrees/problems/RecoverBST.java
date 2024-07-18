@@ -1,4 +1,4 @@
-package BinarySearchTrees.concepts;
+package BinarySearchTrees.problems;
 
 public class RecoverBST {
     /**
