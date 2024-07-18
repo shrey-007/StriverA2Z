@@ -16,4 +16,7 @@ public class CheckIfTwoTreesAreIdenticalOrNot {
         // faith
         return isSameTree(p.right,q.right) && isSameTree(p.left,q.left);
     }
+    /**
+     * It is preorder traversal so TC,SC pata hai tumhe
+     * */
 }

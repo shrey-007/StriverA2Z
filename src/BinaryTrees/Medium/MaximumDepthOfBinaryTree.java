@@ -17,7 +17,8 @@ public class MaximumDepthOfBinaryTree {
         return Math.max(leftHeight,rightHeight)+1;
 
     }
-    // tc=0(n) since we have to travel all nodes
-    // sc=0(n) in worst case if it is skew tree(recursive stack space)
+    // tc=0(n) since we have to travel all nodes (It is postorder traversal)
+    // sc= Yaha pr hum log postorder traversal kr rhe hai toh space complexity bhi usi ki aaegi i.e O(height) which will become
+    // 0(n) in worst case if it is skew tree and O(logn) in best case
 
 }

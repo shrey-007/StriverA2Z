@@ -10,7 +10,7 @@ public class VerticalOrderTraversalOfBinaryTree {
     /**
      * Approach-:
      * Create a class Pair which tells about Node, its horizontalLevel and verticalLevel
-     * Now Traverse the tree through any algorithm , here i have used inoder traversal, and during traversal put the nodes into the priorityQueue.
+     * Now Traverse the tree through any algorithm , here i have used inorder traversal, and during traversal put the nodes into the priorityQueue.
      * Now since PriorityQueue prioritize objects based on some condition, so the conditions are, sort the nodes based on their horizontalLevel, if the horizontalLevel is same then sort them on basis of their verticalLevel, if the verticalLevel is also same then sort them based on their node.val
      * After this the PriorityQueue holds the answer, but we have to return the list so traverse PriorityQueue and store the integer value in list.
      *
@@ -18,10 +18,11 @@ public class VerticalOrderTraversalOfBinaryTree {
      * Time complexity:
      * To traverse all nodes, it took O(N)
      * For Each traversal it store the node in PriorityQueue, which took logN
-     * So overall complexity is
+     * So overall complexity is nlogn
      *
      * Space complexity:
-     * Every Node is stored in PriorityQueue , so space is O(N)
+     * Every Node is stored in PriorityQueue , so space is O(N) also recursion stackspace for the func() which is doing
+     * inorder traversal usme O(height) lagegi toh overall fir bhi O(N) hi lagegi.
      *
      * */
     public List<List<Integer>> verticalTraversal(Node root) {

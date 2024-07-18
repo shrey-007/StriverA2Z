@@ -6,6 +6,9 @@ import BinaryTrees.Implementation.Node;
 import java.util.*;
 
 public class BinaryTreeRightSideView {
+    /**
+     * 1) Since Right view chaiye toh dfs kro Node,Right,Left is order mai
+     * 2) */
     public List<Integer> rightSideView(Node root) {
         ArrayList<Integer> ans=new ArrayList<>();
         func(root,0,ans);
@@ -37,8 +40,6 @@ public class BinaryTreeRightSideView {
      * kiuki isme 5,6 same horizontal,vertical level pr hai toh us vertical level pr 5 store hua pehle fir jab iteration 6 pr gaya toh same vertical level dikha and same horizontalLevel
      * dikha toh voh (pairInTreeMap.horizontalLevel<horizontalLevel) condition false hui toh voh update nhi hua toh condition mai equal to bhi lagado
      * But since */
-
-    /** Ye wrong approach hai kiuki isme horizontal level se farak nhi padta bas view se padta hai */
 
 }
 

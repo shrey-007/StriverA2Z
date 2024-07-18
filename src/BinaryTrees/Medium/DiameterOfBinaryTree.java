@@ -12,7 +12,7 @@ import BinaryTrees.Implementation.Node;
  The length of a path between two nodes is represented by the number of edges between them.*/
 public class DiameterOfBinaryTree {
 
-    /**Method 1-: Har node pr jaao and dekho uska left and right path ko combine krke bada and aa skta hai kya*/
+    /**Method 1-: Har node pr jaao and dekho uska left and right path ko combine krke answer aaega agar vo max se bada hoga toh use max bana do*/
 
     public int func(Node root,int ans) {
         if(root==null){

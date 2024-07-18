@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.Queue;
 
 /**
+ * Time-: O(n) (har node ek baar visit hogi)
+ * Space-:O(N/2) The space complexity is determined by the maximum number of nodes that can be held in the queue at any one time.
+ * This maximum number of nodes typically occurs at the level with the most nodes, which is at most half of the total
+ * number of nodes in a complete binary tree.
  * Worst case mai  space complexity O(N/2) hogi jab pefect BT hoga toh saari leaf nodes same level pr hogi toh n/2 leaf nodes hogi
  * and queue mai poore ek level ke nodes store hoge toh n/2 store hoge
  * */

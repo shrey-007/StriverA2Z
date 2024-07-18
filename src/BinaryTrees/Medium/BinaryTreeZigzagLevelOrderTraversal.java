@@ -10,7 +10,9 @@ import java.util.Queue;
 public class BinaryTreeZigzagLevelOrderTraversal {
 
     /**
-     * It is same as level order traversal bas ek baar ans arraylist ke start mai add kro , ek baar end mai*/
+     * It is same as level order traversal bas ek baar ans arraylist ke start mai add kro , ek baar end mai
+     * Toh iski space and time complexity bhi level order vaali hogi n,n/2
+     * */
     public List<List<Integer>> zigzagLevelOrder(Node root) {
 
         if(root==null){
