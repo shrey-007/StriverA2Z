@@ -13,5 +13,6 @@
 
 ### Traversal
 1. BFS(Iterative) -: It is ditto same as BFS(level order) of tree, only difference is ki tree mai cycle nhi hoti toh ek node ek hi baar visit hoti hai. But graph mai cycle hoti hai toh, also ek node se doosre node mai jaane ke different paths bhi hote hai toh ek hi node ko multiple baar na answer mai rakhle isliye usme visited[] array banate hai. That's it. else everything is ditto same. Also tree mai 2 children hote the yaha arraylist mai neighbours hote hai toh saare neighbours ke liye vo kaam ko jo vaha 2 children ke liye kara hai.
-2. DFS(Recursive) -: Same as DFS of Tree, farak bas visited array, and tree mai 2 children hote the yaha arraylist mai neighbours hote hai toh saare neighbours ko call krna padta hai arraylist ko traverse krke
+2. DFS(Recursive) -: Same as DFS of Tree, farak bas visited array, and tree mai 2 children hote the yaha arraylist mai neighbours hote hai toh saare neighbours ko call krna padta hai arraylist ko traverse krke.
+3. BFS mai queue mai daalte time hi visited mark kr diya kro, and DFS mai daalne ke baad jab us node par pahucho tab visited mark kro.
 
