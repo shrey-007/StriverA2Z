@@ -7,8 +7,7 @@ public class BellmanFord {
     /**
      * 1) It also finds the shortest path from one source to all nodes, but unlike dijkstra it also works with negative
      *    weights
-     * 2) It only works with Directed graph
-     * 3) It helps to detect negative cycle
+     * 2) It helps to detect negative cycle
      * */
 
     /**
