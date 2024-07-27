@@ -3,4 +3,8 @@ There are few patterns of subsequences-:
    In base if condition satisfies(positive base case) then return 1 , else return 0(negative base case)
    In normal call return sum of all calls
 2) Print any one answer-:
-3) 
+
+### Types of Recursion-:
+1. Functional-: When we have to return something
+2. Parametrised-: When edge case arrives, it either prints the answer or it updates the answer passed in the parameter.Toh agar hume kuch return Object krna ho toh us object ko create kro and new Parametrised recursion banao yaha pass krdo and ye usme answer update kr dega fir use return krdo. Ye cheej Functional Recursion mai nhi kr skte hai. Toh ye bhi return vaala kaam kr skta hai (only on object, not on primitive data types). Like jaise Trees mai apan ko integer return krna tha toh apan ne use object mai convert krke ans[1] , Parametrised recursion mai pass kiya tha jisse vo ans[1] update ho gya.  
+  It is recommended ki Parametrised recursion use kro, it is easy as compared to Functional. 

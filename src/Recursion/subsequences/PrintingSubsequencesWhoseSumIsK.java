@@ -80,7 +80,7 @@ public class PrintingSubsequencesWhoseSumIsK{
 
         // take
         ArrayList<ArrayList<Integer>> faith1=func(arr,k-arr[index],index+1);
-        // Since faith1 vo saare subsequences hai jinka sum k-arr[index] hai toh agar uske saare subsequences mai
+        // Since faith1 mai vo saare subsequences hai jinka sum k-arr[index] hai toh agar uske saare subsequences mai
         // apan arr[index] add krde toh sabka sum k hojaaega
         for(ArrayList<Integer> subsequence:faith1){
             subsequence.add(arr[index]);

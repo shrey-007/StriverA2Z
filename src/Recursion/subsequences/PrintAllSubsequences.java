@@ -3,6 +3,8 @@ package Recursion.subsequences;
 import java.util.ArrayList;
 
 public class PrintAllSubsequences {
+
+    // If we are asked to print the subsequences.
     public static void func(int arr[], int index, ArrayList<Integer> currentSubSequence){
         if (arr.length==index){
             System.out.println(currentSubSequence);
@@ -45,7 +47,7 @@ public class PrintAllSubsequences {
     public static void main(String[] args) {
         int arr[]={1,2,3,4};
         func(arr,0,new ArrayList<>());
-        System.out.println("ji");
+        System.out.println("--");
         System.out.println(func(arr,0));
     }
 }
