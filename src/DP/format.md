@@ -6,7 +6,7 @@
    If they are asking you min-: find minimum of all stuffs
 ### Steps to convert Recursion to Memoization
 1. Find the parameter, which are changing.
-2. Create dp of size n+1
+2. Create dp of size n+1(Agar question mai 1 based indexing use kri hai tab else no need)
 3. Save the answer before returning 
 4. Before doing anything, first check whether it has already been calculated or not.
 ### Steps to convert Memoization to Tabulation
@@ -17,4 +17,7 @@
 5. Recursion mai jaha return kara hai end mai vaha return krne ki jagah dp[] mai store krlo 
 ### Can we reduce Space complexity of Tabulation
 1. Simply dekho ki Tabulation mai dp[i] ko calculate krne ke liye kiski need hai if, only dp[i-1],dp[i-2] ki need hai toh poori dp table banane se 2 variables banao which will point to last two index.
+
+### When greedy fails , you should try all possible combinations
+
   
