@@ -1,4 +1,5 @@
 1. Try all possible ways,min,max in sab mai recursion lagta hai.
+2. ### DP mai saare questions mai functional recursion lagta hai.
 ### Steps to Solve Recursion Problem-:
 1. Try to represent problem in terms of index
 2. Do all possible stuffs on that index according to the problem
