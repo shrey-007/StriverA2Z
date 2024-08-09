@@ -28,6 +28,8 @@ public class LevelOrder {
         }
     }
 
+    // If we have to another level in another line then use this code
+
     public static ArrayList<ArrayList<Integer>> func2(Node node){
 
         ArrayList<ArrayList<Integer>> ans=new ArrayList<>();

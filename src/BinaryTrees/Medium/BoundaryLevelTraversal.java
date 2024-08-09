@@ -48,6 +48,8 @@ public class BoundaryLevelTraversal {
         return ans;
     }
 
+    // You can do addRightBoundaryWithoutLeaves using right , left , node way
+
 
     public static ArrayList<Integer> addRightBoundaryWithoutLeaves(Node node){
 
@@ -73,6 +75,8 @@ public class BoundaryLevelTraversal {
 
         return ans;
     }
+
+    // You can do addRightBoundaryWithoutLeaves using left ,right, node way
 
     public static ArrayList<Integer> addLeftBoundaryWithoutLeaves(Node node){
 

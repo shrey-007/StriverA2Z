@@ -19,6 +19,8 @@ public class BinaryTreeMaximumPathSum {
      *    kitna hai and right node se ek side ka sum kitna hai. Isliye return mai Math.max(leftSum,rightSum)+node.val kra hai
      * */
 
+    // This is the modified version of height function
+
     public int height(Node node,int [] ans){
 
         if(node==null){return 0;}

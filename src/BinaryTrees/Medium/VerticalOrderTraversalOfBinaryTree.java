@@ -21,9 +21,8 @@ public class VerticalOrderTraversalOfBinaryTree {
      * So overall complexity is nlogn
      *
      * Space complexity:
-     * Every Node is stored in PriorityQueue , so space is O(N) also recursion stackspace for the func() which is doing
+     * Every Node is stored in PriorityQueue , so space is O(N) also recursion stack space for the func() which is doing
      * inorder traversal usme O(height) lagegi toh overall fir bhi O(N) hi lagegi.
-     *
      * */
     public List<List<Integer>> verticalTraversal(Node root) {
 
@@ -40,6 +39,7 @@ public class VerticalOrderTraversalOfBinaryTree {
 
         while (!priorityQueue.isEmpty()) {
             Pair pair = priorityQueue.poll();
+            // If we have reached to another horizontal level then we have to create another arraylist for it
             if (pair.horizontalLevel != currentHorizontalLevel) {
                 ans.add(currentList);
                 currentList = new ArrayList<>();

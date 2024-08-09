@@ -21,4 +21,6 @@
 
 ### When greedy fails , you should try all possible combinations
 
+### What i have observed is, ki DP ke mostly question subset/subsequence vaale hote hai subarray/substring vaale nhi 
+
   

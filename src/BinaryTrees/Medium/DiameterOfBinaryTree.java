@@ -14,27 +14,18 @@ public class DiameterOfBinaryTree {
 
     /**Method 1-: Har node pr jaao and dekho uska left and right path ko combine krke answer aaega agar vo max se bada hoga toh use max bana do*/
 
-    public int func(Node root,int ans) {
-        if(root==null){
-            return 0;
-        }
+    public int dia(Node node){
 
-        // find left and right height
-        int leftHeight=height(root.left);
+        // right height
+        int leftHeight=height(node.left);
+        // left height
+        int rightHeight=height(node.right);
 
-        int rightHeight=height(root.right);
+        // calculate current diameter
+        int currentDiameter=leftHeight+rightHeight;
 
-        // answer ko update krdo agar current answer previous se bada hai toh
-        // current ans is leftHeight+rightHeight
-
-        ans=Math.max(leftHeight+rightHeight,ans);
-
-        // now since ho skta hai ki left, right children vaala diameter bada ho toh unhe check kro
-
-        int tempAns=Math.max(func(root.left,ans),func(root.right,ans));
-
-        // return max of current ans, right ans, left ans
-        return Math.max(ans,tempAns);
+        // we have to return max of currentDiameter, diameter of left node, diameter of right node
+        return Math.max(currentDiameter,Math.max(dia(node.left),dia(node.right)));
     }
 
     public int height(Node root) {
@@ -58,6 +49,8 @@ public class DiameterOfBinaryTree {
      * Method2-: height function mai hi changes krlo, vo abhi bhi height hi return krega but ans update kr dega,
      * agar ans as a variable bhejte toh update nhi hota isliye as a object bheja and ans return isliye ni krskte
      * coz return toh vo height hi krega*/
+    /**
+     * Create same height function, bas usme answer(diameter) update krne ki ek line add krdo and parameter mai answer bhej do*/
     public int height2(Node root,int ans[]) {
 
         if(root==null){return 0;}

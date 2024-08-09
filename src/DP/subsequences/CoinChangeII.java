@@ -52,4 +52,38 @@ public class CoinChangeII {
         return faith2+faith1;
     }
 
+    // tabulation
+    public int tabulation(int coins[],int amount){
+        int n=coins.length;
+
+        int dp[][]=new int[n][amount+1];
+
+        // base case is if the index is anything but amount is 0, then ans will be 1
+        for (int index = 0; index < n; index++) {
+            dp[index][0]=1;
+        }
+
+        // another base case is, if the index=n-1 toh ans tabhi aaega if amount%coins[n-1]==0 kiuki suppose amount 12 hai
+        // toh last coin ko 3 baar lelo toh answr aajaega
+        for (int remainingAmount = 1; remainingAmount <= amount; remainingAmount++) {
+            if(remainingAmount%coins[n-1]==0){
+                dp[n-1][remainingAmount]=1;
+            }
+            // else dp[n-1][remainingAmount] 0 hi rahega
+        }
+
+        // fill the dp table
+        for (int index = n-2; index >=0; index--) {
+            for (int remainingAmount = 1; remainingAmount <= amount; remainingAmount++) {
+                int faith1=0;
+                if(remainingAmount>=coins[index]) faith1=dp[index][remainingAmount-coins[index]];
+                int faith2=dp[index+1][remainingAmount];
+
+                dp[index][remainingAmount]=faith1+faith2;
+            }
+        }
+
+        return dp[0][amount];
+    }
+
 }
