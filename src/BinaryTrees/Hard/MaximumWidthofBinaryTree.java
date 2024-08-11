@@ -4,14 +4,25 @@ import BinaryTrees.Implementation.Node;
 
 import java.util.*;
 
+/**
+ * Given the root of a binary tree, return the maximum width of the given tree.
+ *
+ * The maximum width of a tree is the maximum width among all levels.
+ *
+ * The width of one level is defined as the length between the end-nodes (the leftmost and rightmost non-null nodes),
+ * where the null nodes between the end-nodes that would be present in a complete binary tree extending down to that
+ * level are also counted into the length calculation.
+ *
+ * */
 public class MaximumWidthofBinaryTree {
     /**
-     * We can not use concept of horizontalLevel(..,-2,-1,0,1,2,...) here. The reason is given in the video.
+     * We can not use concept of horizontalLevel(..,-2,-1,0,1,2,...) here. The reason is given in the video, and in important.md
      * We will use index of a node here.
+     * If the index of current node is i the index of its left child will be 2*i and right child will be 2*i+1
      *
     /**
      * The answer is the number of nodes between extreme nodes in a particular level
-     * Toh har level par jaao and vaha extreme nodes ke beech kitni nodes aa rhai calculate kro, max will be ans.
+     * Toh har level par jaao and vaha extreme nodes ke beech kitni nodes aa rhi calculate kro, max will be ans.
      * So we will do level order traversal
      * */
 
@@ -55,9 +66,7 @@ public class MaximumWidthofBinaryTree {
                 // to the minimum position in the level
                 int currentIndex = q.peek().node.val - mmin;
                 // Get the current node
-                Node node = q.peek().node;
-                // Poll the front node from the queue
-                q.poll();
+                Node node = q.poll().node;
 
                 // If this is the first node in the level,
                 // update the 'minIndex' variable

@@ -9,6 +9,7 @@ public class InsertIntoBST {
     public Node insertIntoBST(Node root, int val) {
 
         if(root==null){
+            // means it is leaf position toh new node bana kr return krdo
             Node node=new Node(val);
             return node;
         }

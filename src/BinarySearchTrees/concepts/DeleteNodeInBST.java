@@ -5,7 +5,7 @@ import BinaryTrees.Implementation.Node;
 public class DeleteNodeInBST {
     /**
      * Remember one thing-: Uper vaali node ko neeche ki jis node se connect krna hai us node ko return kroge
-     * Agar vo koi random node hai toh use hi return krdo coz uska parent change nhi hoga hoga
+     * Agar vo koi random node hai toh use hi return krdo coz uska parent change nhi hoga
      * JUST DRY RUN IT FOR BETTER UNDERSTANDING, AND TEST CASE KOI MIDDLE NODE DELETE KRNE KA RAKHNA*/
     public Node deleteNode(Node root, int key) {
 

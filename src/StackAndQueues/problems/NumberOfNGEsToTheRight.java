@@ -6,22 +6,14 @@ import java.util.Map;
 import java.util.Stack;
 
 public class NumberOfNGEsToTheRight {
-    public static int[] count_NGEs(int N, int arr[], int queries, int indices[]) {
-
-        int ans[] = new int[queries];
-
-        for (int i = 0; i < queries; i++) {
-            int index=indices[i];
-            int count=0;
-            for (int j = index+1; j <arr.length; j++) {
-                if(arr[j]>arr[index]){count++;}
-            }
-            ans[i]=count;
-        }
-
-        return ans;
-
-    }
+    /**
+     * If you are at index i, you just have to calculate number of elements in right , which are bigger than arr[i]
+     * Toh bas i to n-1 loop chala kr dekhlo
+     * So this will take O(N2)
+     * -----------------------------------NO NEED OF STACK HERE---------------------------------------------------
+     * IGNORE BELOW CODE
+     *
+     * */
     public static int[] countNGEs(int[] arr) {
         int n = arr.length;
         int[] result = new int[n];

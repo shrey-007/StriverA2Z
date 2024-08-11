@@ -1,0 +1,4 @@
+1. 2 node ka Horizontal level and vertical level dono same ho skta hai toh us case mai problem aati hai clashes ki
+2. Jaise ki MaximumWidthOfBT in hard , usme agar 5 nodes esi hai jinka (x,y) same hai toh vo un paancho ko ek baar calculate krega but esa hona chaiye according to question isliye us question ko node index se kiya
+3. Means ki agar tum ye soch rhe ho har level pr jaao and uska minimum horizontal index and maximum horizontal index ka difference lelo toh ans aa jaaega , esa nhi hoga. Maanlo minIndex=-2 and maxIndex=2 means us level pr tumhare hisaab se 4 nodes hai but agar 5 noeds esi ho jinka index=0 ho toh vo 5 baar count nhi hui na , vo ek hi baar count hui.
+4. Toh jab bhi horizontal level use kr rhe ho is cheej ko jarur sochna ek baar
