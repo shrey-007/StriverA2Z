@@ -3,7 +3,7 @@
 3. Graph need not to be cyclic, acyclic bhi ho skte hai
 4. There r 2 types of graph directed(jinme directed edges hoti hai), undirected(jinme undirected edges hoti hai)
 5. There r two types of graphs cyclic(ek node se chale and vaapis usi pe aagye), and acyclic
-6. Path-: Contains nodes in which each of them are reachable
+6. Path-: Contains nodes and which each of them are reachable
 ##### For Undirected
 1. Degree of a node - Number of edges that are attached to that node of undirected graph.
 2. Total sum of degree of nodes in a undirected graph - 2*edges
