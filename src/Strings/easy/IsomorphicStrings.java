@@ -5,7 +5,8 @@ import java.util.HashSet;
 
 
 /**
- * Given two strings s and t, determine if they are isomorphic.
+ *
+ Given two strings s and t, determine if they are isomorphic.
 
  Two strings s and t are isomorphic if the characters in s can be replaced to get t.
 
@@ -28,6 +29,10 @@ public class IsomorphicStrings {
     // an avg takes O(1) but in worst case it could lead to O(n) due to hash collision
     public boolean isIsomorphic1(String s, String t) {
 
+        // This method is wrong, because ye bas ye check rha hai ki s ka character, t ke ek particular character ko hi map kr rha hai ki nhi
+        // but ye check nhi kr rha ki t ka character, s ke multiple character se map toh nhi hai
+        // agar e->f and r->f hai toh ye sahi bata dega but ye galat hai, toh ya toh ek aur hashmap banao t string ke liye, and usme bhi same cheej kro ki t ka ek character s ke ek hi character se map krna chaiye
+        // Or use array vaala method jo ki neeche kra hai
         HashMap<Character,Character> hm=new HashMap<>();
 
 
@@ -65,8 +70,11 @@ public class IsomorphicStrings {
             return false;
         }
 
+        // maps s ka character to t ka character
         int[] sMapping = new int[256];
+        // maps t ka character to s ka character
         int[] tMapping = new int[256];
+        // toh sMapping[i]==tMapping[i] hoga
 
         for (int i = 0; i < s.length(); i++) {
             char c1 = s.charAt(i);

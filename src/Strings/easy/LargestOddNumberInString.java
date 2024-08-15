@@ -13,6 +13,8 @@ public class LargestOddNumberInString {
      * Input: num = "52"
      * Output: "5"
      * Explanation: The only non-empty substrings are "5", "2", and "52". "5" is the only odd number.*/
+
+    // Start from last and if you find the odd then return the string else remove the even characters till the last character is odd
     public String largestOddNumber(String num) {
         int n=num.length();
         for(int i=n-1;i>=0;i--){

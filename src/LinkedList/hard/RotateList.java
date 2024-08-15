@@ -1,6 +1,8 @@
 package LinkedList.hard;
 
 public class RotateList {
+    /** Given a singly LL, rotate the list k times, In each rotation the tail becomes the head.
+     * */
 
     /** brute force approach is simply delete last node and save its value in temporary value and then create new node
      *  with same value which now points to the head means simply last node ko delete kro and use first node bana do

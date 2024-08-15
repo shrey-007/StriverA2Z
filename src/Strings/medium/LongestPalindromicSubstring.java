@@ -12,6 +12,45 @@ public class LongestPalindromicSubstring {
      * O(n^3).
      * */
 
+    /** Another method is axis, orbit method
+     * https://www.youtube.com/watch?v=vTlVtLvPQo4
+     * */
+    public static String func(String s){
+        int n=s.length();
+        String longestPalindromicSubstring="";
+
+        // odd length substrings
+        for (int axis = 0; axis <n ; axis++) {
+            int orbit=0;
+
+            while (axis-orbit>=0 && axis+orbit<n && s.charAt(axis-orbit)==s.charAt(axis+orbit)){
+                if(longestPalindromicSubstring.length()<2*orbit+1) longestPalindromicSubstring=s.substring(axis-orbit,axis+orbit+1);
+                orbit++;
+            }
+        }
+
+        // even length substrings
+        for (double axis = 0.5; axis < n; axis++) {
+            double orbit=0.5;
+            int leftMost=(int) (axis-orbit);
+            int rightMost=(int) (axis+orbit);
+
+            while (leftMost>=0 && rightMost<n && s.charAt(leftMost)==s.charAt(rightMost)){
+                if(longestPalindromicSubstring.length()<rightMost-leftMost+1) longestPalindromicSubstring=s.substring(leftMost,rightMost+1);
+                orbit++;
+                leftMost=(int) (axis-orbit);
+                rightMost=(int) (axis+orbit);
+            }
+        }
+
+        return longestPalindromicSubstring;
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println(func("babad"));
+    }
+
 
 
 
