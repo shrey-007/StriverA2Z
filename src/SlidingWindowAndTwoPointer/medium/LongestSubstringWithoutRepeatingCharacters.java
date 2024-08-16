@@ -5,10 +5,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class LongestSubstringWithoutRepeatingCharacters {
+
     /**
-     * Brute force-:
+     * Brute force-: Find all possible substring and find the longest among them
      * 1) i se start hogi substring , j pr khatam hogi
      * 2) i to j calculate kro ki hashmap mai duplicate element toh nhi hai*/
+
 
     public static int lengthOfLongestSubstring(String s) {
 
@@ -37,6 +39,11 @@ public class LongestSubstringWithoutRepeatingCharacters {
         return ans;
 
     }
+
+
+    /**
+     * longest substring means ki variable size sliding window
+     * */
 
     /** sliding window */
 

@@ -6,7 +6,8 @@ After finishing A2Z, watch pepcoding DP level 2
 1. BT
 2. BST
 3. LL
-4. 
+4. Strings 1
+5. 
 
 ### Modules left
 1. Sliding Window

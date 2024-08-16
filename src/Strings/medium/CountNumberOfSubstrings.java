@@ -120,6 +120,9 @@ public class CountNumberOfSubstrings {
      * */
 
     /**
+     * you can't solve  counting problems through variable size sliding window*/
+
+    /**
      *  watch pepcoding = <a href="https://www.youtube.com/watch?v=CBSeilNvZHs">Pepcoding link</a>
      *  */
     public int countSubstringsWithKDistinctChars(String s, int k) {

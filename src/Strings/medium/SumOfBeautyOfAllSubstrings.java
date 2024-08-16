@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * The beauty of a string is the difference in frequencies between the most frequent and least frequent characters.
- *
+ *x
  * For example, the beauty of "abaacc" is 3 - 1 = 2.
  * Given a string s, return the sum of beauty of all of its substrings.
  *

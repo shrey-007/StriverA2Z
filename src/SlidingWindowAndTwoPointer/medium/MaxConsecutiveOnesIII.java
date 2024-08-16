@@ -3,6 +3,10 @@ package SlidingWindowAndTwoPointer.medium;
 /**
  * Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can
  * flip at most k 0's.
+ *
+ * 
+ * So this question is basically longest subarray with all 1, if you can flip atmost k 0's
+ * Toh longest subarray means variable size sliding window
  */
 public class MaxConsecutiveOnesIII {
 

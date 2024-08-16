@@ -9,7 +9,8 @@ package SlidingWindowAndTwoPointer.medium;
 public class LongestRepeatingCharacterReplacement {
 
     /**1) So the logic here is, ki agar string abaababac hai means ki usme a ,5 times aa rha hai and b , 3 times aa rha hai,and c->1 time
-     * 2) Toh hum a ko b mai convert krege na ki b ko a mai. Toh basically mostFrequent character(a) mai convert krne ki koshish krege remaining character(b,c) ko
+     * 2) Toh hum a ko b mai convert krege na ki b ko a mai. Toh basically mostFrequent character(a) mai convert krne ki
+     *    koshish krege remaining character(b,c) ko
      * 3) */
 
     public static int characterReplacement(String s, int k) {
