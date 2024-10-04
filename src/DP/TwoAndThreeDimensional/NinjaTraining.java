@@ -4,6 +4,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class NinjaTraining {
+    /**
+     * Geek is going for a training program. He can perform any of these activities: Running, Fighting, and Learning
+     * Practice. Each activity has some point on each day. As Geek wants to improve all his skills, he can't do the same
+     * activity on two consecutive days. Help Geek to maximize his merit points as you are given a 2D array of points
+     * arr, corresponding to each day and activity.
+     * */
+
+    /**
+     * Hume nhi pata ki konse din konsi activity krni chaiye jisse max points score ho, coz aaj jo kri voh kal ni kr skte toh
+     * we have to try all possisble ways toh is is DP question
+     * */
     public int maximumPoints(int arr[][], int N) {
         return func(arr,0,-1,N);
     }

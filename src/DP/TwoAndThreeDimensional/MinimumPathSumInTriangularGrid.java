@@ -6,6 +6,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class MinimumPathSumInTriangularGrid {
+    /**
+     * same question as MinimumPathSum
+     */
+
     public int minimumTotal(List<List<Integer>> triangle) {
         ArrayList<ArrayList<Integer>> dp=new ArrayList<>();
         for (int i = 0; i < triangle.size(); i++) {

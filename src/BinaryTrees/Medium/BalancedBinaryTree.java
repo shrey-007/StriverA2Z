@@ -46,6 +46,10 @@ public class BalancedBinaryTree {
 
     }
 
+    // Agar tum iska reduced form nhi bana paa rhe ki height function baar baar same computaions kr rha hai toh use dp
+    // create a dp array of height, bas usme problem yahi hai ki x node ka answer nikaalne ke baad store konse index mai
+    // kroge ans?
+
     /**
      * tc= har node ko traverse kara ye find krne ke liye ki vo balanced hai ki nhi-> O(n),
      * and har node ke liye left and right height nikaali -> O(N)+O(N)

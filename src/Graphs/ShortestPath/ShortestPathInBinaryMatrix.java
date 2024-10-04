@@ -1,6 +1,7 @@
 package Graphs.ShortestPath;
 
 import java.util.Arrays;
+import java.util.Map;
 import java.util.PriorityQueue;
 
 import java.util.PriorityQueue;
@@ -14,7 +15,8 @@ import java.util.PriorityQueue;
 
  All the visited cells of the path are 0.
  All the adjacent cells of the path are 8-directionally connected (i.e., they are different and they share an edge or a corner).
- The length of a clear path is the number of visited cells of this path\*/
+ The length of a clear path is the number of visited cells of this path
+ \*/
 public class ShortestPathInBinaryMatrix {
     /**
      * BFS with distance array is Dijkstra
@@ -91,5 +93,38 @@ public class ShortestPathInBinaryMatrix {
         public int compareTo(CellWithDistance o) {
             return this.distance - o.distance;
         }
+    }
+
+    // I don't know why we used dijkstra, this is simple recursion question
+    // try all possible ways
+    // It is totally correct, passed 49/90 test cases on leetcode phir TLE aa rha hai
+    // So use dp to eliminate TLE
+
+    // The answer is ki tum dijkstra bhi use kr skte ho and ye bhi use kr skte ho but better ans dijkstra se aayega
+    // Shortest path algorithm dijkstra se hi solve krna better rehta hai
+
+    public int func(int grid[][],int row,int col,int visited[][]){
+
+        if(row==grid.length-1 && col==grid[0].length-1){return 0;}
+
+        // try all possible ways
+        int[] r = {1, -1, 0, 0, -1, -1, 1, 1};
+        int[] c = {0, 0, 1, -1, -1, 1, -1, 1};
+        int ans=Integer.MAX_VALUE;
+
+        for (int i = 0; i <8 ; i++) {
+            int neighbourX=row+r[i];
+            int neighbourY=col+c[i];
+
+            if(neighbourX>=0 && neighbourX<grid.length &&
+               neighbourY>=0 && neighbourY<grid[0].length &&
+               visited[neighbourX][neighbourY]==0 && grid[neighbourX][neighbourY]==0){
+                visited[neighbourX][neighbourY]=1;
+                ans=Math.min(ans,func(grid,neighbourX,neighbourY,visited)+1);
+                visited[neighbourX][neighbourY]=0;
+            }
+        }
+
+        return ans;
     }
 }

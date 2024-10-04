@@ -1,0 +1,10 @@
+1. LongestSubstringWithoutRepeatingCharacters-: if current character is in hashmap then tab tak start badate jaao jab tak hashmap se vo nikale nhi. If current character is not in hashmap then, add it and update the answer.
+2. MaxConsecutiveOnesIfWeCanFlipKZeroes-: if current is 1 then end++ and update ans, if current is 0 and flips are remaining then end++ and flip-- and update ans, if current is 0 and no flips are remaining then do start++ until you get a zero and remove that 0 from window jisse humari number of remaining flips increase ho jaaegi. i.e flips++;
+3. Ek string di hai, usme k replcement kr skte hai. Toh batao ki longest string konsi hogi jisme same character hai - Toh first task ye hai ki konsa character ki longest string banaye? Ans is jo character sabse jyaada baar aaye uski banaege. To find the character of max frequency in current substring(start to end), create a hasharray. each time when you reach the new window, update the hasharray and also update the maxFrequency(No need of the character, just the count).Now find the length of the subarray(end-start+1), of which maxFrequency is the count of the characters with maximum frequency in that array, so (length of subarray - maxFrequency) is the count of other characters than c(character with maxFrequency in current substring).If this count of extra characters is less than equal to k means this substring can be the answer so update answer else increase start pointer until count of extra characters becomes k.
+4. An array with 0/1, find count of subarrays whose sum is equal to goal -: count of subarrays whose sum is lesser than equal to goal-count of subarrays whose sum is lesser than equal to (goal-1). You must see the code of lesser than equal to vaala function kese banate hai
+5. count number of subarrays with k odd numbers-: number of subarrays with k or less than k odd integer-number of subarrays with k-1 or less than k-1 odd integer.
+6. Number of substring containing all 3 character-:
+7. Max points from card-: create all possible permutation.[0,n],[1,n-1],[2,n-2].. and so on
+
+### Hard Problems
+1.CountSubarraysWithKDifferentIntegers-: f(k)-f(k-1)

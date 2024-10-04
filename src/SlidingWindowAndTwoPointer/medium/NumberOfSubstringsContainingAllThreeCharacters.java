@@ -48,8 +48,9 @@ public class NumberOfSubstringsContainingAllThreeCharacters {
                 else{doesContains[2]++;}
 
                 if (doesContains[0] != 0 && doesContains[1] != 0 && doesContains[2]!=0) {
-                    // if start to end mai a,b,c hai toh all substring with starting index start and ending index k(end<=k<=n-1) mai a,b,c hoga toh sabko ek baar mai add krdo
-                    // adnd loop break krdo, jisse doosra start index ke liye calculate kre
+                    // if start to end mai a,b,c hai toh all substring with starting index start and ending index
+                    // k(end<=k<=n-1) mai a,b,c hoga toh sabko ek baar mai add krdo
+                    // and loop break krdo, jisse doosra start index ke liye calculate kre
                     count=count+n-end;
                     break;
                 }

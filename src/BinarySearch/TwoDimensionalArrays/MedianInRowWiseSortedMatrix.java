@@ -19,6 +19,9 @@ class Pair implements Comparable<Pair>{
         return this.value-o.value;
     }
 }
+/**
+ * Given a row wise sorted matrix of size R*C where R and C are always odd, find the median of the matrix.
+ * */
 public class MedianInRowWiseSortedMatrix {
     public static int median(int matrix[][]){
 
@@ -48,7 +51,8 @@ public class MedianInRowWiseSortedMatrix {
     public static int median2(int matrix[][],int m,int n){
         int low = Integer.MAX_VALUE, high = Integer.MIN_VALUE;
 
-        // point low and high to right elements
+        // point low to min element of matrix, high to max element of matrix
+        // since matrix is row wise sorted toh min element first column mai and max element last column mai milega
         for (int i = 0; i < m; i++) {
             low = Math.min(low, matrix[i][0]);
             high = Math.max(high, matrix[i][n - 1]);

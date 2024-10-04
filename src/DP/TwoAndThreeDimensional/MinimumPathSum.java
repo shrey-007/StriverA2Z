@@ -1,5 +1,14 @@
 package DP.TwoAndThreeDimensional;
 
+/**
+ * Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right, which minimizes the
+ * sum of all numbers along its path.
+ * */
+
+/**
+ * Konsa path pr min sum milega hum direct greedy se ni bata skte, it will give local min, we want global min
+ * Toh we have to explore all ways toh use recursion
+ * */
 public class MinimumPathSum {
     public int minPathSum(int[][] grid) {
         return func(0,0,grid);

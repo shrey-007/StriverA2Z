@@ -2,11 +2,22 @@ package Recursion.subsequences;
 
 import java.util.*;
 
+/**
+ * Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in
+ * candidates where the candidate numbers sum to target.
+ *
+ * Each number in candidates may only be used once in the combination.
+ *
+ * Note: The solution set must not contain duplicate combinations.
+ * */
 public class CombinationSumII {
 
-    // Method1-:
-    // PrintingSubsequencesWHoseSumIsK hi hai bas , isme duplicates allowed nhi hai toh Set mai store krege and sort krke
-    // daalege subsequence ko
+    // Method1:
+    // Toh since ek element ko ek baar le skte hai toh CombinationSumI mai take vaale case mai index+1 pass krna hai bas
+    // Ab problem hai unique subsequences ki
+
+    // This is my method by using set data structure
+
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> ans= new ArrayList<>(func(candidates,target,0));
         return ans;

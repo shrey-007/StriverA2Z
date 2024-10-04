@@ -1,5 +1,20 @@
 package DP.TwoAndThreeDimensional;
 
+/**
+ * You are given an n rows and m cols matrix grid representing a field of chocolates where grid[i][j] represents the
+ * number of chocolates that you can collect from the (i, j) cell.
+ *
+ * You have two robots that can collect chocolates for you:
+ *
+ * Robot #1 is located at the top-left corner (0, 0), and
+ * Robot #2 is located at the top-right corner (0, cols - 1).
+ * Return the maximum number of chocolates collection using both robots by following the rules below:
+ *
+ * From a cell (i, j), robots can move to cell (i + 1, j - 1), (i + 1, j), or (i + 1, j + 1).
+ * When any robot passes through a cell, It picks up all chocolates, and the cell becomes an empty cell.
+ * When both robots stay in the same cell, only one takes the chocolates.
+ * Both robots cannot move outside of the grid at any moment.
+ * Both robots should reach the bottom row in grid.*/
 public class NinjaAndHisFriends {
     /**
      * 1. Tum pehle Robot1 ke chocolates nikaal lo, fir Robot2 ke nikaalo fir dono ko sum up krdo toh ese nhi kr skte kuiki
@@ -25,10 +40,13 @@ public class NinjaAndHisFriends {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
+                // ye saare combinations of path hai (row,c1) cell pr robot1 ke paas 3 options hai
+                // similarly (row,c2) cell pr robot2 ke paas 3 option hai
+                // toh total 9 combinaitons hai options ki, un sab mai se max vaala nikaalna hai
                 int value=0;
-                if(c1==c2){value=grid[row][c1];}
-                else{value=grid[row][c1]+grid[row][c2];}
-                value=value+func(grid,row+1,c1+i,c2+j,n,m);
+                if(c1==c2){value=grid[row][c1];}   // if both are in same col, toh ek hi baar chocolates le skte hai
+                else{value=grid[row][c1]+grid[row][c2];}  // else dono apne cell ki chocolates le lenge
+                value=value+func(grid,row+1,c1+i,c2+j,n,m); // aur aage jaaega
                 ans=Math.max(ans,value);
             }
         }

@@ -1,0 +1,5 @@
+- Stack-: ith index ke kaaran 0 to i-1 indexes mai change hona
+- Heap-: Sorting ke questions mai lgta hai to reduce complexity from nlon to nlogk
+- SlidingWindow-: Subarray/Substring question asking longest/smallest subarray or count of subarrays, toh agar question solve nhi ho rha toh 2 for loop se toh kr hi lena
+- BS on Answers-: Jab ek answer tumhe already pata hai ki ye toh answer hoga hi but question mai poocha hai ki min/max nikaalo toh tab lagega. Ya ese questions jinme min of max/max of min poocha hai unme lagega. Ese question jinme ek threshold ko cross krne ka constraint ho, means min/max find krna hai with some give threshold conditions
+- Recursion-: Subsequences(take and not take),permutation questions(jisme TAKE/NOT TAKE nhi hai, saare characters aaege bas ordering ki permutation krni hai), min/max/count questions jinme all possible combinations dhoondna pade

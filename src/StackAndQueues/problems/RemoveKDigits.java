@@ -9,6 +9,12 @@ import java.util.Stack;
  * after removing k digits from num.
  * */
 
+/**
+ * First approach jo mere dimaag mai aayi vo hai ki k largest digit hata do, but it is wrong
+ * num=7129 and k=1 toh tum 9 ko hataoge jo ki vese bhi unit place mai hai toh jyaada farak nhi padega 712 banega
+ * but agar 7 hataya toh 129 banega. Toh aage se hatao digits.
+ * */
+
 // Concept-: Keep smaller digits at start, so start from 0th index and remove the bigger digit
 // Stack will be used to track previous elements
 /**
@@ -26,7 +32,10 @@ import java.util.Stack;
  *    ii) 15 and remainig n-k-2 digits. Example-:  153333
  *    Ab samajh aaya ki 1st option kiu choose kra, hum chahte hai starting mai chote numbers rahe, toh arr[i] mai agar stack ke peek se hote ya equal numbers aa rhe hai toh unhe daalte raho, what could be worst ki saare numbers daal diye , uska edge case baad mai handle kiya hai.
  *    And agar bade numbers aa rhe hai toh unhe delete kro
- *
+ * */
+
+/** Toh basically num ke traverse kro, agar koi number chota ya equal aata hai toh peek se toh peek ko hata do, else bada aaya toh daaldo
+ * Since ith charater ke vajah se (i-1)th character delete ho rha hai toh stack use krege
  * */
 public class RemoveKDigits {
     public String removeKdigits(String num, int k) {

@@ -3,6 +3,7 @@ package DP.subsequences;
 import java.util.Arrays;
 
 public class SubsetSumEqualToTarget {
+    /** DP 14 */
     static Boolean isSubsetSum(int N, int arr[], int sum){
         return func(arr,sum,0);
     }

@@ -3,6 +3,15 @@ package Graphs.ProblemsOnBFS_DFS;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
+/**
+ * You are given an m x n binary matrix grid, where 0 represents a sea cell and 1 represents a land cell.
+ *
+ * A move consists of walking from one land cell to another adjacent (4-directionally) land cell or walking off the
+ * boundary of the grid.
+ *
+ * Return the number of land cells in grid for which we cannot walk off the boundary of the grid in any number of moves.
+ * */
+
 /** This is also same as rotten oranges
  * Boundary of matrix ke jitne 1 hai unse jitne bhi 1 valued cell tak jaa skte hai voh sab answers mai nhi aaege, remaining 1 vaale aaege
  * Toh Boundary valued 1 cell  vaale rotten hai hai unhe remaining 1 ko rott krna hai jitne rott nhi hue vo ans*/
@@ -14,6 +23,7 @@ public class NumberOfEnclaves {
 
         int numberOfIslands=0;
 
+        // add all boundary islands in queue
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 if(grid[i][j]==1 && (i==0 || i==grid.length-1 || j==0 || j==grid[0].length-1)){
@@ -22,7 +32,7 @@ public class NumberOfEnclaves {
                     queue.offer(new Cell3(i,j));
                 }
                 else if(grid[i][j]==1){
-                    // count kro ki kitne Islands hai jo boundary pr nhi hai
+                    // count kro ki kitne Islands
                     numberOfIslands++;
                 }
             }

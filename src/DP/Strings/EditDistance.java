@@ -15,12 +15,13 @@ package DP.Strings;
 import java.util.Arrays;
 
 /**
- * If this question was just about deletion and insertion, then we have already done it. But here we can replace also. Which is the problem
+ * If this question was just about deletion and insertion, then we have already done it. But here we can replace also.
+ * Which is the problem
  * */
 public class EditDistance {
     /**
      * We will start matching each character from string(String Matching Algo)
-     * If current character don't matches then we can 3 possible ways-: Inser,delete,replace or hume nhi pata kisse minimum operations hoge,
+     * If current character don't matches then we can 3 possible ways-: Insert,delete,replace or hume nhi pata kisse minimum operations hoge,
      * toh we will try all possible ways through recursion
      * */
     public int minDistance(String word1, String word2) {

@@ -1,5 +1,11 @@
 package Graphs.ProblemsOnBFS_DFS;
 
+/**
+ * Given an m x n binary matrix mat, return the distance of the nearest 0 for each cell.
+ *
+ * The distance between two adjacent cells is 1.
+ * */
+
 /** Why this is a graph problem?
  *  Kiuki dekho apan ko har cell se nearest 0 nikaalna tha , toh tum uper neeche right left dekh lete ki 0 hai toh
  *  update kr dete but agar nhi hota toh use aur aage jaana padta. Toh vo aage kese jaate , uske bahut ajeeb traversal
@@ -14,7 +20,7 @@ import java.util.Queue;
 
 /** 1) It will be solved with BFS only, kiuki nearest distance jaakr check krna hai pehle ki vo 0 hai ki nhi. BFS
  *     first goes to all nearest nodes then it goes deeper
- *  2) Brute force can be ki har cell pr jaao and us pr bfs lagao and find kro ki konsa cell nearest hai
+ *  2) Brute force can be ki har cell jiski value 1 hai uspr pr jaao and us pr bfs lagao and find kro ki konsa 0 value vaala cell nearest hai
  *  3) Optimal approach could be same as rotten oranges, toh jo bhi 0 hai un sab ko queue mai daalo as starting point
  *  */
 public class ZeroOneMatrix {

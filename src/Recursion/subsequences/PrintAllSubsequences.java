@@ -17,7 +17,6 @@ public class PrintAllSubsequences {
         // don't add the current element to the subsequence
         currentSubSequence.remove(Integer.valueOf(arr[index]));
         func(arr,index+1,currentSubSequence);
-
     }
 
     // If we are asked to return all the subsequences

@@ -64,7 +64,7 @@ public class BoundaryLevelTraversal {
             Node curr=stack.pop();
 
             // if curr is not a leaf node , then add it to ans
-            if(isLeafNode(node)){ans.add(node.val);}
+            if(!isLeafNode(node)){ans.add(node.val);}
 
             // if curr ka right exists krta hai tabhi right ko daalo else left daalo
             if(curr.right!=null){stack.add(curr.right);}
@@ -91,7 +91,7 @@ public class BoundaryLevelTraversal {
             Node curr=stack.pop();
 
             // if curr is not a leaf node , then add it to ans
-            if(isLeafNode(node)){ans.add(node.val);}
+            if(!isLeafNode(node)){ans.add(node.val);}
 
             // if curr ka left exists krta hai tabhi left ko daalo else right daalo
             if(curr.left!=null){stack.add(curr.left);}

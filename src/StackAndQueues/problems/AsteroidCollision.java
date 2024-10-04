@@ -30,7 +30,7 @@ public class AsteroidCollision {
             // ki stack mai hai , unme change(deletion) ho skta hai kya
             boolean isDestroyed=false;
 
-            // Agar previous asteroid hai , and current asteroid left side jaa rha hai, toh changes hoge
+            // Agar previous asteroid right and current left jaa rha hai toh collide krege
             while (!stack.isEmpty() && asteroids[i]<0 && stack.peek()>0){
                 if(Math.abs(asteroids[i])>Math.abs(stack.peek())){
                     // [2,-5], if i is -5 and peek is 2, toh 2 destroy ho jaaega and -5 jaata jaaega left side

@@ -32,7 +32,7 @@ public class BFS {
             // add it to ans
             ans.add(curr);
 
-            // add all its neighbours
+            // add all its neighbours if they are not visited
             for (int neighbours:adj.get(curr)){
                 if(visited[neighbours]!=1){
                     // add it only when it is not visited

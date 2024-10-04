@@ -43,7 +43,7 @@ public class ReverseNodesInKGroup {
             // Reverse the nodes from temp to the Kth node
             reverseLinkedList(temp);
 
-            // Adjust the head if the reversal starts from the head
+            // Change the head if the first group is reversed, noe kth node is the head
             if (temp == head) {
                 head = kThNode;
             } else {

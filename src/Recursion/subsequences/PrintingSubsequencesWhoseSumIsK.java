@@ -28,32 +28,32 @@ public class PrintingSubsequencesWhoseSumIsK{
 
     // if we have to print only one subsequence
 
-    public static boolean func2(int arr[], int k, int index, ArrayList<Integer> currentSubsequence,int currentSum){
-
-        // return false in negative base case
-        if(currentSum>k){return false;}
-
-        if(arr.length==index){
-            if(currentSum==k){System.out.println(currentSubsequence);}
-            // return true in positive base case
-            return true;
-        }
-
-        // take it
-        currentSum=currentSum+arr[index];
-        currentSubsequence.add(arr[index]);
-        boolean flag=func2(arr,k,index+1,currentSubsequence,currentSum);
-        // if this already ave you answer then don't further call
-        if(flag){return true;}
-
-        // not take
-        currentSum=currentSum-arr[index];
-        currentSubsequence.remove(Integer.valueOf(arr[index]));
-       flag= func2(arr,k,index+1,currentSubsequence,currentSum);
-       if (flag){return true;}
-
-       return false;
-    }
+//    public static boolean func2(int arr[], int k, int index, ArrayList<Integer> currentSubsequence,int currentSum){
+//
+//        // return false in negative base case
+//        if(currentSum>k){return false;}
+//
+//        if(arr.length==index){
+//            if(currentSum==k){System.out.println(currentSubsequence);}
+//            // return true in positive base case
+//            return true;
+//        }
+//
+//        // take it
+//        currentSum=currentSum+arr[index];
+//        currentSubsequence.add(arr[index]);
+//        boolean flag=func2(arr,k,index+1,currentSubsequence,currentSum);
+//        // if this already ave you answer then don't further call
+//        if(flag){return true;}
+//
+//        // not take
+//        currentSum=currentSum-arr[index];
+//        currentSubsequence.remove(Integer.valueOf(arr[index]));
+//       flag= func2(arr,k,index+1,currentSubsequence,currentSum);
+//       if (flag){return true;}
+//
+//       return false;
+//    }
 
 
 

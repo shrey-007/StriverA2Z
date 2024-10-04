@@ -43,7 +43,16 @@ public class BinaryTreeRightSideView {
 
     /**
      * Can we do it using rightBoundaryTraversal?
-     * Can we do bottom view through leaves traversal which we have already done*/
+     * Can we do bottom view through leaves traversal which we have already done, lets try
+     * No you can't , this is the only way.
+     * Suppose Left view ki baat kr rhe hai
+     * See the picture, usme agar leftBoundaryTraversal lagaoge toh 1 2 4 5 print hoga bas
+     * But ye method use kroge toh 1 2 4 5 10 11 print hoga, reason is ki ye vaala method dono nodes pr jaata hai right,left
+     * bas pehle right pr jaata hai and dekhta hai ki y vertical level ki righmost node hai toh save krlo else agar left
+     * node hai toh jaaega tab bhi but ans mai save nhi karega
+     *
+     * */
+
 
 }
 

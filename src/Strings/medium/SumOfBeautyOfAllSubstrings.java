@@ -48,7 +48,6 @@ public class SumOfBeautyOfAllSubstrings {
      * Above method find all substring in n^2 and then finds the min,max from values of hashmap which will take n, so overall becomes n^3
      * Better way is ki find all substring, and instead of storing mapping in hashmap, create an array of 26 size. Ab frequency array ko traverse kre ke liye O(26) time lagega jo ki constant hai
      * so tc-26*n^2
-     *
      * */
     public int beautySum2(String s) {
         int n=s.length();

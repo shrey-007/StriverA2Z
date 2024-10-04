@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class KruskalAlgorithm {
+    // Here we don't use adjacency ist, instead we use edges
+    // So we hae to convert the adjacency list to the edges
     // Function to find the weight of the Minimum Spanning Tree (MST)
     static int spanningTree(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj) {
         // List to store all the edges of the graph
@@ -26,6 +28,7 @@ public class KruskalAlgorithm {
         // Sort edges based on their weight
         // M log M complexity where M is the number of edges
         Collections.sort(edges);
+
         int mstWt = 0; // Variable to store the weight of the MST
         // Iterate over all the edges
         // Complexity: M x 4 x alpha x 2

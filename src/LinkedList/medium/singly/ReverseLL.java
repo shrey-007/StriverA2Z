@@ -56,7 +56,7 @@ public class ReverseLL {
         if(node==null){return node;}
 
         Node after=node.next; // after can be null
-        node.next=previous;   // previouscan be null
+        node.next=previous;   // previous can be null
         recursive(after,node);
         return node;
     }

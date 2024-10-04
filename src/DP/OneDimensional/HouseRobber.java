@@ -1,6 +1,13 @@
 package DP.OneDimensional;
 
 public class HouseRobber {
+    /**
+     * given a array of houses , nums[i] denotes ith house se kitna money milega. If you rob ith house, you can't rob
+     * i+1 th house(Means u can't rob adjacent houses). Find max money you can collect
+     *
+     * Since apan ko directly nhi pata ki konsa house rob krna chaiye coz fir uska agla ni kr paaege toh try all possible
+     * combinations, and max bhi pooch hai toh it is DP question.
+     * */
     public int rob(int[] nums) {
         return recursion(nums,0);
     }
@@ -11,7 +18,9 @@ public class HouseRobber {
             return 0;
         }
 
+        // don't rob current house, toh next house jaa skte hai isliye index+1
         int faith1=recursion(nums,index+1);
+        // rob current house, but next house ni jaa skte toh index+2, also current house rob kra hai toh uski value add kro
         int faith2=recursion(nums,index+2)+nums[index];
 
         return Math.max(faith1,faith2);

@@ -21,7 +21,7 @@ public class DFS {
         // add it to ans
         ans.add(node);
 
-        // recursively call all its neighbours
+        // recursively call all its neighbours if they are not visited
         for (int neighbour: adj.get(node)){
             if(visited[neighbour]!=1){
                 func(neighbour,adj,visited,ans,V);

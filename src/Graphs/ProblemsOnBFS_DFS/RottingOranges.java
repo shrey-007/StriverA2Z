@@ -23,7 +23,8 @@ public class RottingOranges {
      * */
 
     /**
-     * 1) Vese BFS mai starting node ko intially queue mai rakhte hai , but yaha saare initially rooten oranges ko rakhege*/
+     * 1) Vese BFS mai starting node ko intially queue mai rakhte hai , but yaha saare initially rooten oranges ko rakhege
+     * */
     public int orangesRotting(int[][] grid) {
 
         int visited[][]=new int[grid.length][grid[0].length];
@@ -47,9 +48,7 @@ public class RottingOranges {
 
         while (!queue.isEmpty()){
             int size=queue.size();
-            for (int i = 0; i < size; i++) {
 
-            }
             // pop the first cell
             Cell cell=queue.poll();
             time= Math.max(time,cell.rottenTime);

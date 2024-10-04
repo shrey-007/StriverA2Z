@@ -74,25 +74,13 @@ public class MaximumSubarray {
 
     // Follow Up question by Leetcode to solve this problem using dp(divide and conquer)
 
-    public static int func3(int index,int nums[],int ans){
-        if(index==nums.length){return 0;}
-        int faith=func3(index+1,nums,ans);
-        if(nums[index]+faith<nums[index]){
-            ans=0;
-        }
-        else{
-            ans=ans+nums[index];
-        }
-        return ans;
-    }
+   // Subarray ka question hai , dp se solve ni hoga, dp se subsequences solve hote hai
 
     public static void main(String[] args) {
         int arr[]={-2,1,-3,4,-1,2,1,-5,4};
 
         System.out.println(func(arr));
         func2(arr);
-        System.out.println(func3(0,arr,0));
-
     }
 
 }

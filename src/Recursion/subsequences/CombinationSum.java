@@ -12,38 +12,54 @@ import java.util.*;
  /**
   * So this question is same as PrintingSubsequenceWhoseSumIsK
   * */
+
+ /**
+  * CombinationSum mai list of subsequences return krni hai jinka sum target ho and ek element ko kitni bhi baar le skte
+  * hai, toh take vaale case mai index pass krna. CombinationSumII mai bhi same hi kaam krna hai bas ek element ko ek baar
+  * le skte hai subsequence mai toh take vaale case mai index+1 pass krdo. So these two are easy questions. But problem
+  * tab aati hai jab inme unique subsequence return krne hai jiska method CombinationSumII mai diya hai
+  * */
 public class CombinationSum {
-    public static List<List<Integer>> combinationSum(int[] candidates, int target) {
 
-        if(target<0){return new ArrayList<>();}
+     // Ek baar mai saare kaam mat kro
+     // Pehle normal solve kro, duplicates ko bhi aane do
+     public static List<List<Integer>> combinationSum(int[] candidates, int target,int index) {
+         if(target<0 || index==candidates.length){
+             // negative base case
+             return new ArrayList<>();
+         }
+         if(target==0){
+             // positive base case
+             List<List<Integer>> ans=new ArrayList<>();
+             ans.add(new ArrayList<>());
+             return ans;
+         }
 
-        if(target==0){
-            // positive base case
-            List<List<Integer>> ans=new ArrayList<>();
-            ans.add(new ArrayList<>());
-            return ans;
-        }
+        // agar mutiple baar same element ko le skte hai toh ye hota hai-:
 
-        List<List<Integer>> ans=new ArrayList<>();
+         // take , but don't increase the index
+         List<List<Integer>> faith1=combinationSum(candidates,target-candidates[index],index);
 
-        for (int i = 0; i < candidates.length; i++) {
-            List<List<Integer>> ithFaith=combinationSum(candidates,target-candidates[i]);
-            // Since ith faith mai vo saare subsequences hai jika sum target-candidates[i] hai toh uske saare
-            // subsequences mai agar apan candidates[i] add krde toh unka sum target ho jaaega
-            for (List<Integer> subsequence:ithFaith){
-                subsequence.add(candidates[i]);
-            }
-            // Now add ithFaith to ans
-            ans.addAll(ithFaith);
-        }
+         // not take and increase the index
+         List<List<Integer>> faith2=combinationSum(candidates,target,index+1);
 
-        return ans;
-    }
+         // since faith1 mai take kra hai toh sabme current element ko add krna padega
+         for (List<Integer> currentList:faith1){
+             currentList.add(candidates[index]);
+         }
+
+         List<List<Integer>> ans=new ArrayList<>();
+         ans.addAll(faith1);
+         ans.addAll(faith2);
+
+         return ans;
+     }
 
     /**
-     * This is good, but the problem is we it is for the candidates = [2,3,6,7], target = 7,
+     * This is good, but the problem is for the candidates = [2,3,6,7], target = 7,
      * it is giving output-:[[3,2,2],[2,3,2],[2,2,3],[7]] , but they want unique subsequence
      * expected-[[2,2,3],[7]]
+     * Striver ne iska solution nhi diya hai, toh uper vaala code padho bas
      * */
 
     public static Set<List<Integer>> func(int[] candidates, int target) {

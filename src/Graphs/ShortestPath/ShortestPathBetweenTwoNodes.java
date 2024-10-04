@@ -15,7 +15,7 @@ public class ShortestPathBetweenTwoNodes {
 
         PriorityQueue<NodeWithDistance> priorityQueue=new PriorityQueue<>();
 
-        // create a parent pointer and sabka parent khud ko hi bana do
+        // create a parent array and sabka parent khud ko hi bana do
         int parentPointers[]=new int[V];
         for (int i = 0; i < V; i++) {
             parentPointers[i]=i; // means initially 1 ka parent 1 hai, 2 ka parent 2 hai and so on ...

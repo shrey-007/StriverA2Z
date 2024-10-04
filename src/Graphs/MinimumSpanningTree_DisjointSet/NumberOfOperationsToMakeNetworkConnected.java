@@ -2,9 +2,20 @@ package Graphs.MinimumSpanningTree_DisjointSet;
 
 import java.util.ArrayList;
 
+/**
+ * There are n computers numbered from 0 to n - 1 connected by ethernet cables connections forming a network where
+ * connections[i] = [ai, bi] represents a connection between computers ai and bi. Any computer can reach any other
+ * computer directly or indirectly through the network.
+ *
+ * You are given an initial computer network connections. You can extract certain cables between two directly connected
+ * computers, and place them between any pair of disconnected computers to make them directly connected.
+ *
+ * Return the minimum number of times you need to do this in order to make all the computers connected. If it is not
+ * possible, return -1.
+ * */
 public class NumberOfOperationsToMakeNetworkConnected {
     /**
-     * 1) It is same as -: Given a graph with different components, find nmber of operations to make the graph connected
+     * 1) It is same as -: Given a graph with different components, find number of operations to make the graph connected
      * 2) Also it is unweighted graph toh kisi ek component ki kisi bhi node ko doosre component ki kisi bhi node se connect kr skte hai
      * 3) For k components i would require k-1 edges to make it connected, so i just need to find number of components which we had already solved.
      * 4) Problem is ki hum directly new edge banakr connect nhi kr skte hume , kisi component ki extra edge ko hi use krke bnana hai, such that if us component se vo edge hata di fir bhi vo component break nhi hua.

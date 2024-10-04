@@ -61,6 +61,31 @@ public class PathWithMinimumEffort {
         return dist[n - 1][m - 1];
     }
 
+    // This question can also be solved using normal recursion, use dp to improve efficiency
+    public int func(int [][] heights, int row,int col,int visited[][]){
+        if(row==heights.length-1 && col==heights[0].length-1){return 0;}
+        // try all possible ways
+        int[] r = {1, -1, 0, 0};
+        int[] c = {0, 0, 1, -1};
+
+        int ans=(int)1e9;
+
+        for (int i = 0; i < 4; i++) {
+            int neighbourX=row+r[i];
+            int neighbourY=col+c[i];
+
+            if(neighbourX>=0 && neighbourY>=0 &&
+               neighbourX<heights.length && neighbourY<heights[0].length &&
+               visited[neighbourX][neighbourY]==0){
+                    visited[neighbourX][neighbourY]=1;
+                    ans=Math.min(ans,Math.max(Math.abs(heights[row][col]-heights[neighbourX][neighbourY]),func(heights,neighbourX,neighbourY,visited)));
+                    visited[neighbourX][neighbourY]=0;
+            }
+
+        }
+        return ans;
+    }
+
 }
 
 class CellWithHeight implements Comparable<CellWithHeight>{

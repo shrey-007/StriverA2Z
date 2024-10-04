@@ -2,6 +2,14 @@ package DP.OneDimensional;
 
 import java.util.Arrays;
 
+/**
+ * given a array of houses , nums[i] denotes ith house se kitna money milega. If you rob ith house, you can't rob
+ * i+1 th house. Find max money you can collect. Given ek extra condition hai ki first and last house adjacent hai
+ *
+ * Since apan ko directly nhi pata ki konsa house rob krna chaiye coz fir uska agla ni kr paaege toh try all possible
+ * combinations, and max bhi pooch hai toh it is DP question.
+ * */
+
 public class HouseRobberII {
     /**
      * 1. My answer can not contain both first and last element
