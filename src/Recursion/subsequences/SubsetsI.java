@@ -1,11 +1,19 @@
-//package Recursion.subsequences;
-//
-//import java.util.ArrayList;
-//import java.util.Collection;
-//import java.util.Collections;
-//import java.util.List;
-//
-//public class Subsets {
+package Recursion.subsequences;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SubsetsI {
+    /**
+     * Given an integer array nums of unique elements, return all possible
+     * subsets
+     *  (the power set).
+     *
+     * The solution set must not contain duplicate subsets. Return the solution in any order.
+     * */
+    /**
+     * -------------------------------------------It is already solved in PrintAllSubsequences---------------------------------------------------------------- */
+
 //    public static List<List<Integer>> func(int[] nums,int index,List<List<Integer>> list) {
 //
 //        // This checks if index has reached the length of the array nums. If it has, it means we have processed all
@@ -62,7 +70,7 @@
 //        return func(nums, index + 1, newList);
 //
 //    }
-//
+
 //    public static void main(String[] args) {
 //
 //        int [] nums={1,2,3};
@@ -75,4 +83,4 @@
 //        System.out.println(list);
 //
 //    }
-//}
+}

@@ -10,6 +10,7 @@ public class SubsetSum {
         return func(arr,0);
     }
 
+    // functional recursion
     ArrayList<Integer> func(ArrayList<Integer> arr,int index){
         if(index==arr.size()){
             // Base case ke liye dry run krlo
