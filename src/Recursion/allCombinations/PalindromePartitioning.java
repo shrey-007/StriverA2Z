@@ -3,6 +3,20 @@ package Recursion.allCombinations;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Given a string s, partition s such that every substring of the partition is a palindrome
+ * Return all possible palindrome partitioning of s.
+ * */
+
+/**
+ * Concept-:
+ * 1. parameter index means ki index ke pehle processing/perutations krli hai and currentAns mai hai, ab index to n-1 mai processing kro(It is for every question is string/array, not only this one)
+ * 2. Toh if index is i toh 0 to jitne possible partition hona the voh ho gye hai, ab tum i to n-1 ka dekho.
+ * 3. You are currently at index "index", Ab tumhare paas bahut options hai partition krne ke tum index to i (index<i<n) ka partition banao, and baaki ka remaining string i to n-1 recursion mai paas krdo as input
+ * 4. Toh hoga kya ki next call mai 0 to i ke saare possible partition hoge and apan ko i to n-1 ke krne hoga
+ * 5. Remember index to i tabhi partition kr skte hai index to i is palindrome. toh check krlo pehle
+ * */
+
 public class PalindromePartitioning {
     public List<List<String>> partition(String s) {
         List<List<String>> ans = new ArrayList<>();

@@ -14,11 +14,15 @@ public class WordSearch {
         int n = board.length;
         int m = board[0].length;
 
+
         if(word.length()>n*m){return false;}
 
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
-                if(func(i,j,board,0,word,new int[n][m])){return true;}
+                int visited[][]=new int[n][m];
+                // since we are starting from (i,j) so mark it visited
+                visited[i][j] = 1;
+                if(func(i,j,board,0,word,visited)){return true;}
             }
         }
 
@@ -34,7 +38,7 @@ public class WordSearch {
         // return false , if current character of word don't matches with current character of matrix
         if(board[row][col]!=word.charAt(index)){return false;}
 
-        // if it matches the we have to check futher, whether remaining characters also matches or not
+        // if it matches then, we have to check further, whether remaining characters also matches or not
         boolean flag = false;
 
         int[] r = {-1,1,0,0};
@@ -44,6 +48,8 @@ public class WordSearch {
             int nextCellX = row + r[i];
             int nextCellY = col + c[i];
 
+            // koi ek bhi agar true return krta hai means ki us case mai remaining string match ho rhi hai toh means answer mil gya
+            // is liye flag ka or liya hai
             if(nextCellX>=0 && nextCellX<board.length && nextCellY>=0 && nextCellY<board[0].length && visited[nextCellX][nextCellY]==0){
                 visited[nextCellX][nextCellY]=1;
                 flag = flag || func(nextCellX,nextCellY,board,index+1,word,visited);

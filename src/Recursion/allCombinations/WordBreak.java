@@ -4,6 +4,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+/**
+ * Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated
+ * sequence of one or more dictionary words.
+ *
+ * Note that the same word in the dictionary may be reused multiple times in the segmentation.
+ * */
 public class WordBreak {
 
     public static boolean wordBreak(String s, List<String> wordDict) {
@@ -25,6 +31,14 @@ public class WordBreak {
             if(hashSet.contains(currentWord)){return true;}
             else{return false;}
         }
+        // it is like kadane algorithm, we have two options , either hum currentCharacter ko currentWord mai add krde
+        // ya fir new word create kre currentCharacter se
+        // ex-: currentWord - cat
+        //      currentCharacter - s
+        // Ab option 1 - "cats"
+        // option 2 - "cat","s"
+        // But option 2 tabhi kr skte jab jo word bana vo dixtionary mai ho like isme cat bana toh voh dixtionary mai hona chaiye
+
         // include it in this word itself
         boolean faith1 = func(s,index+1,new String(currentWord+s.charAt(index)),hashSet);
         // include in another word
