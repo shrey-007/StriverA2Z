@@ -2,7 +2,7 @@ package Recursion.Patterns;
 
 public class ParameterisedAndFunctionalRecursion {
     // Suppose we need to print the sum of elements of array then we will store our answer in parameter,
-    // and when the base case arrives , we will return the paraeter
+    // and when the base case arrives , we will return the parameter
     public void func(int arr[],int index,int sum){
         if(index==arr.length){
             System.out.println(sum);

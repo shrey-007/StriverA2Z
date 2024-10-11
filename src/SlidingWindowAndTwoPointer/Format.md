@@ -56,7 +56,7 @@ int func(int nums[]){
 }
 ```
 
-### sum Lesser than equal to goal
+### sum Lesser than equal to goal(count)
 
 ```java
 public int func(){

@@ -1,1 +1,0 @@
-1) problems where min/max is asked then it could be-: DP,Greedy,Binary Search, Dijkstra(greedy+dp)
