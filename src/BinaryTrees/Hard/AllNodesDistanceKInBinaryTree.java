@@ -22,7 +22,7 @@ public class AllNodesDistanceKInBinaryTree {
 
      public List<Integer> distanceK(Node root, Node target, int k) {
 
-         // get the parent of the tree
+         // get the parent pointers of nodes
          HashMap<Node,Node> parents = new HashMap<>();
          getParents(root,parents,null);
 
