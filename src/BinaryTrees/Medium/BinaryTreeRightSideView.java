@@ -8,7 +8,11 @@ import java.util.*;
 public class BinaryTreeRightSideView {
     /**
      * 1) Since Right view chaiye toh dfs kro Node,Right,Left is order mai
-     * 2) */
+     * 2) We will explore all nodes and see it that node is the rightmost node of that level
+     * 3) How to find that the node is the rightmost node of its level?. Dekho ith level par pehli baar jaaoge toh jo
+     * first node, milegi vahi rightmost node hogi coz call pehle right ko kra hai. Toh use store krlo. But point is ki
+     * vaapis agar ith level pr gye and koi aur node milli jo ki rightmost ni hogi obv. toh usko store krne se kese roke.
+     * */
     public List<Integer> rightSideView(Node root) {
         ArrayList<Integer> ans=new ArrayList<>();
         func(root,0,ans);
@@ -43,7 +47,6 @@ public class BinaryTreeRightSideView {
 
     /**
      * Can we do it using rightBoundaryTraversal?
-     * Can we do bottom view through leaves traversal which we have already done, lets try
      * No you can't , this is the only way.
      * Suppose Left view ki baat kr rhe hai
      * See the picture, usme agar leftBoundaryTraversal lagaoge toh 1 2 4 5 print hoga bas

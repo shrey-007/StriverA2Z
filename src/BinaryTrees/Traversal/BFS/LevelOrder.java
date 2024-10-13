@@ -28,7 +28,7 @@ public class LevelOrder {
         }
     }
 
-    // If we have to another level in another line then use this code
+    // If we have to add another level in another list then use this code
 
     public static ArrayList<ArrayList<Integer>> func2(Node node){
 

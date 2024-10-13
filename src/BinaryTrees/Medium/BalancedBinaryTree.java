@@ -71,7 +71,7 @@ public class BalancedBinaryTree {
         int leftHeight=height2(node.left);
         int rightHeight=height2(node.right);
 
-        // check kro  left or right subtree agar already non balanced hai toh directly -1 return kro
+        // if any of the call returns -1, then return -1
         if (leftHeight==-1 || rightHeight==-1){return -1;}
 
         // means ki left and right subtree balanced hai , but apni current node check kro ki voh balanced hai ki nhi
