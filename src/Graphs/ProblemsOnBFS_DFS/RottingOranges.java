@@ -24,6 +24,7 @@ public class RottingOranges {
 
     /**
      * 1) Vese BFS mai starting node ko intially queue mai rakhte hai , but yaha saare initially rooten oranges ko rakhege
+     * 2) Pehle paas vaale rott hoge phir door vale hoge toh bfs lagao
      * */
     public int orangesRotting(int[][] grid) {
 
@@ -47,10 +48,11 @@ public class RottingOranges {
         int time=0;
 
         while (!queue.isEmpty()){
-            int size=queue.size();
 
             // pop the first cell
             Cell cell=queue.poll();
+
+            // update the max time taken
             time= Math.max(time,cell.rottenTime);
 
             // add, its neighbours if they are fresh and not visited, and increase the time by one for its neighbours

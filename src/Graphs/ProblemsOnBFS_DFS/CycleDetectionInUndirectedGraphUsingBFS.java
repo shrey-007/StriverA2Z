@@ -22,10 +22,10 @@ public class CycleDetectionInUndirectedGraphUsingBFS {
 
 
 
-        // Also Is graph mai components hai, toh iske saare components mai check kro cycle hai ki ni , kisi ek mai bhi
-        // agar cycle hai toh return true
+        // Also Is graph mai components hai, toh iske saare components mai check kro cycle hai ki ni
         for (int i = 0; i < visited.length; i++) {
             if(visited[i]!=1){
+                // kisi ek mai bhi agar cycle hai toh return true
                 if(func(i,adj,visited)){return true;}
             }
         }
