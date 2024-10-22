@@ -13,6 +13,7 @@ public class DFS {
     }
 
     public void func(int node,ArrayList<ArrayList<Integer>> adj,int visited[],ArrayList<Integer> ans,int V){
+        // no need to do this node==V, coz recursion stack apne aap empty ho jaaegi
         if(node==V){
             return;
         }
