@@ -40,7 +40,7 @@ public class PathWithMinimumEffort {
             CellWithHeight curr = priorityQueue.poll();
 
             if (curr.x == n - 1 && curr.y == m - 1) {
-                return curr.height;
+                return curr.effortToReachThisCell;
             }
 
             for (int i = 0; i < 4; i++) {
@@ -48,7 +48,7 @@ public class PathWithMinimumEffort {
                 int neighbourY = curr.y + col[i];
 
                 if (neighbourX >= 0 && neighbourX < n && neighbourY >= 0 && neighbourY < m) {
-                    int currentEffort = Math.max(curr.height, Math.abs(heights[curr.x][curr.y] - heights[neighbourX][neighbourY]));
+                    int currentEffort = Math.max(curr.effortToReachThisCell, Math.abs(heights[curr.x][curr.y] - heights[neighbourX][neighbourY]));
 
                     if (currentEffort < dist[neighbourX][neighbourY]) {
                         dist[neighbourX][neighbourY] = currentEffort;
@@ -91,17 +91,17 @@ public class PathWithMinimumEffort {
 class CellWithHeight implements Comparable<CellWithHeight>{
     int x;
     int y;
-    int height; // It is not height of current cel. Is cell tak pahuchne mai maximum adjacent height difference kitna hai(i.e minimum effort)
+    int effortToReachThisCell; // It is not height of current cel. Is cell tak pahuchne mai maximum adjacent height difference kitna hai(i.e minimum effort)
                // and yahi cheej distance matrix mai store hogi
 
     public CellWithHeight(int x, int y, int height) {
         this.x = x;
         this.y = y;
-        this.height = height;
+        this.effortToReachThisCell = height;
     }
 
     @Override
     public int compareTo(CellWithHeight o) {
-        return this.height-o.height;
+        return this.effortToReachThisCell-o.effortToReachThisCell;
     }
 }

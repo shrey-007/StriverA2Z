@@ -59,7 +59,7 @@ public class ShortestPathInBinaryMatrix {
                 return currDist;
             }
 
-            // Visit its neighbours, only when it is a valid cell, and cell is not blocked(it is having 0 value) and
+            // Visit its neighbours, only when it is a valid cell(n>x,y>0), and cell is not blocked(it is having 0 value) and
             // distance to reach that cell is smaller than previously mentioned in distance array
             for (int i = 0; i < 8; i++) {
                 int neighbourX = currX + row[i];
