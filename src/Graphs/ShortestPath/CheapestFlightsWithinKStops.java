@@ -91,11 +91,7 @@ public class CheapestFlightsWithinKStops {
     // Also PQ bhale hi stop ke basis pr ho, but element PQ mai tabhi daalege jab price less ho. It is dijkstra
     // Since stops ek fixed amount(1) se hi badega hamesha, toh we don't need PQ , queue will suffice
 
-    /**
-     * This condition is based on both the number of stops and the cost. However, if you only update the price array
-     * when the cost is strictly less than the current price for a city, you might miss the case where a cheaper
-     * route could be found with more stops but within the k limit.
-     * */
+    // So practically this is not a dijkstra code, this is simple DFS
 
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
 
