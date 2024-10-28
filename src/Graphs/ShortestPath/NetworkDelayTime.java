@@ -117,6 +117,8 @@ public class NetworkDelayTime {
      *    pahuchne mai bhi lagega. Agar same algo bfs mai krte toh ye rejections nhi kr paate kuiuki voh t1 vaala path pehle
      *    explore krte fir t2 vala krta, islie dijstra is better than bfs
      *
+     * 6. Since now you know bellman ford, so apply it
+     *
      * */
 
 }

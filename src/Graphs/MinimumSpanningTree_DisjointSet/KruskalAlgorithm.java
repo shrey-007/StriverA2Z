@@ -5,6 +5,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class KruskalAlgorithm {
+    /**
+     * 1. We will work with edges, not with adjacency list
+     * 2. Sort the edges by weight
+     * 3. Now iterate over each edge, and ek edge se 2 nodes connect hoge u,v. If ultimate parent of u,v are not same
+     *    toh unhe connect krdo else if same means dono already connected hai
+     * */
     // Here we don't use adjacency ist, instead we use edges
     // So we hae to convert the adjacency list to the edges
     // Function to find the weight of the Minimum Spanning Tree (MST)
@@ -62,6 +68,6 @@ class Edge implements Comparable<Edge> {
     public int compareTo(Edge compareEdge) {
         return this.weight - compareEdge.weight;
     }
-};
+}
 
 

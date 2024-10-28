@@ -1,9 +1,6 @@
 package Graphs.ShortestPath;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * You are in a city that consists of n intersections numbered from 0 to n - 1 with bi-directional roads between some
@@ -127,4 +124,69 @@ public class NumberOfWaysToArriveAtDestination {
             return this.time-o.time;
         }
     }
+
+
+    // or there is another way, use modified Dijkstra-:
+    /**
+     * he steps are as follows:
+     *
+     * Dijkstra’s Algorithm: Use a priority queue to maintain nodes based on the shortest time to reach them.
+     * Distance Array: Maintain an array dist[] where dist[i] is the shortest time to reach node i from the source.
+     * Count Array: Maintain a count[] array where count[i] stores the number of ways to reach node i using the shortest
+     * time.
+     * For each node u, when a shorter path to node v is found, update the distance dist[v] and reset count[v] to the
+     * count of ways to reach u. If a path to v is found with the same shortest distance, increment count[v].
+     * */
+    class Solution {
+        public int countPaths(int n, int[][] roads) {
+            // Create an adjacency list for the graph
+            List<int[]>[] graph = new ArrayList[n];
+            for (int i = 0; i < n; i++) {
+                graph[i] = new ArrayList<>();
+            }
+            for (int[] road : roads) {
+                graph[road[0]].add(new int[]{road[1], road[2]});
+                graph[road[1]].add(new int[]{road[0], road[2]});
+            }
+
+            // Dijkstra's algorithm with counting paths
+            int MOD = 1_000_000_007;
+            long[] dist = new long[n]; // dist[i] stores the shortest time to reach node i
+            long[] count = new long[n]; // count[i] stores the number of ways to reach node i
+            Arrays.fill(dist, Long.MAX_VALUE);
+            dist[0] = 0;
+            count[0] = 1; // Start from node 0
+
+            PriorityQueue<long[]> pq = new PriorityQueue<>(Comparator.comparingLong(a -> a[1])); // (node, distance)
+            pq.offer(new long[]{0, 0}); // Start from node 0 with distance 0
+
+            while (!pq.isEmpty()) {
+                long[] curr = pq.poll();
+                int u = (int) curr[0];
+                long currDist = curr[1];
+
+                if (currDist > dist[u]) continue; // If we've already found a shorter path, skip
+
+                // Process neighbors of node u
+                for (int[] neighbor : graph[u]) {
+                    int v = neighbor[0];
+                    int weight = neighbor[1];
+                    long newDist = currDist + weight;
+
+                    // If a shorter path to v is found
+                    if (newDist < dist[v]) {
+                        dist[v] = newDist;
+                        count[v] = count[u]; // Reset count of ways to reach v
+                        pq.offer(new long[]{v, newDist});
+                    } else if (newDist == dist[v]) {
+                        // If another shortest path to v is found
+                        count[v] = (count[v] + count[u]) % MOD;
+                    }
+                }
+            }
+
+            return (int) count[n - 1]; // Return number of ways to reach the last node (destination)
+        }
+    }
+
 }
