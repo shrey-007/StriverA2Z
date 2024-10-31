@@ -19,7 +19,8 @@ public class NumberOfOperationsToMakeNetworkConnected {
      * 2) Also it is unweighted graph toh kisi ek component ki kisi bhi node ko doosre component ki kisi bhi node se connect kr skte hai
      * 3) For k components i would require k-1 edges to make it connected, so i just need to find number of components which we had already solved.
      * 4) Problem is ki hum directly new edge banakr connect nhi kr skte hume , kisi component ki extra edge ko hi use krke bnana hai, such that if us component se vo edge hata di fir bhi vo component break nhi hua.
-     * 5) So we have to count number of extra edges.*/
+     * 5) So we have to count number of extra edges.
+     * */
 
     // My Method
     public int makeConnected(int n, int[][] connections) {
