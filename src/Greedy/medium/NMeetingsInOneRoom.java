@@ -13,7 +13,21 @@ public class NMeetingsInOneRoom {
     // Attend meetings such that ki tum jyaada se jyaada meetings attend kr sko. Konsi meeting pehle krna hai usse farak nhi padta. There is no order. But start and end time of meeting are of real clock time
     // Basically start and end time are actual clock time. kisi meeting ka end time 4 hai toh uske baad us meeting ko nhi kr skte jiska start time 2 hai coz voh choot gyi
 
-    // Common sense is ki don't attend the longer meeting kuiki us time ek hi meeting kr paoge, instead us time mai 2 choti choti meeting krlo
+    /**
+     * Intution -:
+     * 1. if u sort meeting on start time, and take meeting which occurs first toh voh galat ans dega. Suppose o meeting
+     *     sabse pehle start hui voh bahut der tak chali toh uske kaaran tum baaki meetings attend nhi kr paaye.So it is wrong
+     *
+     * 2. Suppose u sort meeting on duration time (end-start), and shortest meeting attend kri. Toh take a test case
+     *    (0,30),(27,33),(31,50). toh ise case mai tum (27,33) loge and 1 meeting tumhara ans aaega but tum 1,3 meeting
+     *    le skte the and is case mai tumhe shortest meeting ko hi ignore krna tha. Toh ye bhi galat way hai
+     *
+     * 3. Suppose u sort on endtime, now jo kaam sabse pehle khatam ho rha hao use pehle krlo, jisse baaki ka krne ka time mil jaaega
+     *    So this is correct way.
+     *    a. sort meeting on endtime
+     *    b. attend ith meeting
+     *    c. check whether (i+1)th meeting start time is greater than end time of ith meeting or not if yes then attend the (i+1)th
+     *        meeting and else ignore (i+1) and check for (i+2)*/
     public int maxMeetings(int n, int start[], int end[]) {
 
         // jo meeting jaldi khatam ho use attend kro, toh sort them according to end time
