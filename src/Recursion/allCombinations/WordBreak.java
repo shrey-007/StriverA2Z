@@ -12,6 +12,9 @@ import java.util.List;
  * */
 public class WordBreak {
 
+    // there are 2 ways to solve this question, one is my way
+    // another is same method as that of palindromic partition. use that only
+
     public static boolean wordBreak(String s, List<String> wordDict) {
 
         // add the dictionary to hashmap
@@ -80,7 +83,7 @@ public class WordBreak {
 
         // Try to break the string starting from index `start`
         for (int end = start + 1; end <= s.length(); end++) {
-            // Check if the substring from start to end is a valid word
+            // Check if the substring from start to end is a valid word(means whether it is present in dictionary or not)
             if (wordSet.contains(s.substring(start, end))) {
                 // If valid, recursively check if the remaining part can be broken
                 if (canBreak(s, end, wordSet, memo)) {
