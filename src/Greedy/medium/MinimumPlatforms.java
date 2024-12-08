@@ -14,6 +14,10 @@ import java.util.Arrays;
  * and the last two characters represent minutes (this will be <= 59 and >= 0).
  * */
 public class MinimumPlatforms {
+    // try it doing sorting on start, endtime etc, and u will not get ans
+    // the point is greedy problems are very difficult to grasp whether they are greedy or DP
+    // even if we know it is greedy , then we dont know how to perform greedy
+    // there are some standard greedy problems , toh bas unhe ratt lo
 
     /**
      * arr[] = {900,945,955,1100,1500,1800}

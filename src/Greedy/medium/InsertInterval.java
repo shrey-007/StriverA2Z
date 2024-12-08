@@ -17,6 +17,13 @@ import java.util.Stack;
  *
  * Note that you don't need to modify intervals in-place. You can make a new array and return it.*/
 public class InsertInterval {
+    // below is a good way to perform insertion
+    // another way is , since array is already sorted toh find the first element in the array jiske start-end ke beech mai new interval aaye
+    // let k is the index of the element toh 0 to k-1 is chill, same array ans hoga
+    // merge the newinterval to the kth index in array itself
+    // now k to n vaala may be bigad jaaega toh agar kth index mai change krne ke kaaran k+1 to n mai changes hue toh what to use?
+    // ans is stack. First element of the stack will be kth index and then apply merger interval algo.
+
     public int[][] insert(int[][] intervals, int[] newInterval) {
         List<int[]> result = new ArrayList<>();
         int i = 0;
