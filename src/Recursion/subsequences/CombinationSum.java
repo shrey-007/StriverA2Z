@@ -90,15 +90,25 @@ public class CombinationSum {
         return ans;
     }
 
-     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-         List<List<Integer>> ans=new ArrayList<>(func(candidates,target));
-         return ans;
-     }
+     // see uper functional recursion use kara hai toh vapis aate hue answer mil rha hai, but agar apan ne parameter use
+     // kara hota toh aage jaate time answer milta
+     // since isme aage jaate time answer milega toh kahi par store krna padega answr ko(currentAns and ans)
+    public static void func(int index,int arr[],int target,List<Integer> currentAns,List<List<Integer>> ans){
+        if(index==arr.length){
+            if(target==0) {
+                ans.add(currentAns);
+            }
+            else return;
+        }
+        // take
+        currentAns.add(arr[index]);
+        func(index+1,arr,target-arr[index],currentAns,ans);
 
-
-         public static void main(String[] args) {
-
-
-
+        // not take
+        currentAns.remove(Integer.valueOf(arr[index]));
+        func(index+1,arr,target,currentAns,ans);
     }
+
+
+
 }
