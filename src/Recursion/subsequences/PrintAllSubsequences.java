@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class PrintAllSubsequences {
 
-    // If we are asked to print the subsequences.
+    // If we are asked to print the subsequences, which is never going to be asked in an interview
     public static void func(int arr[], int index, ArrayList<Integer> currentSubSequence){
         if (arr.length==index){
             System.out.println(currentSubSequence);

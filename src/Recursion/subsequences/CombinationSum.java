@@ -100,9 +100,9 @@ public class CombinationSum {
             }
             else return;
         }
-        // take
+        // take, but don't increase the index since we can take same element multiple times
         currentAns.add(arr[index]);
-        func(index+1,arr,target-arr[index],currentAns,ans);
+        func(index,arr,target-arr[index],currentAns,ans);
 
         // not take
         currentAns.remove(Integer.valueOf(arr[index]));

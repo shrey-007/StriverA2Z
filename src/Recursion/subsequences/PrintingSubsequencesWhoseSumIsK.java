@@ -3,6 +3,7 @@ package Recursion.subsequences;
 import java.util.ArrayList;
 
 public class PrintingSubsequencesWhoseSumIsK{
+    // Ditto same as CombinationSum, don't waste time reading this
 
     //if we have to print all subsequences
     public static void func(int arr[], int k, int index, ArrayList<Integer> currentSubsequence,int currentSum){
