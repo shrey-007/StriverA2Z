@@ -1,3 +1,10 @@
+## Steps -: 
+1. Hume pehle kya find krna hai voh dekho, hume 90% cases mai class banani padegi coz heap mai nodes daalege toh node class banani padegi
+2. Fir dekho ki konsi cheej cell to cell vary karegi, like x,y cordinate and any other attribute, in 90% cases jo cheej find krni hai vahi vary karegi cell to cell toh node class mai ek attribute uska bhi daalo
+3. Fir initial nodes ko heap mai daalo
+4. Fir BFS ki loop likho
+5. Also BFS,DFS mai priorityQueue use nhi krte, queue use krte hai
+
 ```java
 
 public void bfs(){
@@ -21,7 +28,7 @@ public void bfs(){
 }
 
 class CustomClass{
-    // ans atribute which will change in accordingly, let z
+    // ans atribute which will change cell to cell, let z
 }
 ```
 

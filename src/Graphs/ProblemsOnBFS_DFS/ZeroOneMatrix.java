@@ -24,6 +24,10 @@ import java.util.Queue;
  *  3) Optimal approach could be same as rotten oranges, toh jo bhi 0 hai un sab ko queue mai daalo as starting point
  *  */
 public class ZeroOneMatrix {
+    // no need to use dijkstra here. BFS level wise traverse krti hai toh esa nhi hoga ki koi node x , p se 2 ki doori
+    // mai hai and q se 1 ki doori mai and x pai 2 likha hai esa nhi hoga, kiuki level 1 hi pehle explore hoga phir level
+    // 2 explore hoga. TOh x mai 1 hi likha hoga and esa bhi nhi hoga ki pehle x mai 1 likha fir jab level2 explore kra toh
+    // x mai 2 likh diya, since jab x mai 1 likha toh voh visited mark ho jaaega toh level 2 mai vapis x pr jaege hi nhi
     public int[][] updateMatrix(int[][] mat) {
 
         int visited[][]=new int[mat.length][mat[0].length];
