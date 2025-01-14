@@ -12,6 +12,8 @@ import java.util.ArrayList;
  * */
 public class CourseSchedule {
 
+    // just check whether the prerequisite graph contains cycle or not
+
     public boolean canFinish(int numCourses, int[][] prerequisites) {
 
         // First convert this prerequisites to a directed graph
