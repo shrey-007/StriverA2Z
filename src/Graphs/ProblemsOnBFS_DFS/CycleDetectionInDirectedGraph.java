@@ -39,6 +39,17 @@ import java.util.List;
  * </ol>
  */
 
+/***
+ * not visited = 0
+ * visited = 1
+ * visited and explored all neighbours = 2
+ *
+ * Suppose u encountered a node-:
+ * - if node is marked as 0, visit it
+ * - if node is marked is 2 then don;t visit as we have already checked it earlier and it does not contain any cycle
+ * - if node is marked 1, MEANS IT IS A CYCLE
+ * */
+
 public class CycleDetectionInDirectedGraph {
     // It is different from cycle detection in undirected graph
 

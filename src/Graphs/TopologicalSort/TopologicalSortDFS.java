@@ -27,7 +27,7 @@ public class TopologicalSortDFS {
         return ans;
     }
 
-    // df function with only one change at last line
+    // dfs function with only one change at last line
     public void dfs(int node,int visited[],Stack<Integer> linearOrdering,ArrayList<ArrayList<Integer>> adj){
         visited[node]=1;
         for (int i = 0; i < adj.get(node).size(); i++) {

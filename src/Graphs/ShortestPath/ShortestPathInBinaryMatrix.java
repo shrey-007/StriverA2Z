@@ -95,13 +95,9 @@ public class ShortestPathInBinaryMatrix {
         }
     }
 
-    // I don't know why we used dijkstra, this is simple recursion question
-    // try all possible ways
-    // It is totally correct, passed 49/90 test cases on leetcode phir TLE aa rha hai
-    // So use dp to eliminate TLE
-
-    // The answer is ki tum dijkstra bhi use kr skte ho and ye bhi use kr skte ho but better ans dijkstra se aayega
-    // Shortest path algorithm dijkstra se hi solve krna better rehta hai
+    // We can also solve this question using simple recursion but voh all possible ways discover karega, fir un sab ways
+    // mai se shortest dega but dijkstra bina all ways ways discover kre shortest path dega.
+    // So dijkstra better
 
     public int func(int grid[][],int row,int col,int visited[][]){
 

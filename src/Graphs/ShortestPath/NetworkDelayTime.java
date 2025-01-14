@@ -17,6 +17,11 @@ public class NetworkDelayTime {
     // Dijkstra algo mai node ke neighbour ko daalte hai priority queue mai toh node ke neighbours pata hone chaiye, but ye
     // jo times array diya hai usme randomly data daala hai toh first create a adjacency list form it which contains src,dest,time
 
+    // Simple concept is ki k node se saare node jaane tak ka time nikaalo fir un times ka min nikaalo
+    // Dijkstra ek node k to another node u ka shortest path nhi balki node k to all nodes ka shortest path deta hai isliye
+    // we used dijkstra.
+    // Dijkstra is single source shortest path algorithm
+
     public int networkDelayTime(int[][] times, int n, int k) {
         // first create adjacency list
         List<List<List<Integer>>> adj = new ArrayList<>();

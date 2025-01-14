@@ -34,7 +34,7 @@ public class CourseSchedule {
         for(int i=0;i<numCourses;i++){
             if(visited[i]==0){
                 boolean flag = doesContainCycleDFS(i,visited,numCourses,adj);
-                // if this return true means it contains cycle and course could not be scheduled, so teturn false
+                // if this return true means it contains cycle and course could not be scheduled, so return false
                 if(flag){return false;}
             }
         }

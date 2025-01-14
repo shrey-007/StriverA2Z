@@ -78,7 +78,7 @@ public class CheapestFlightsWithinKStops {
     // suppose ki koi city x hai vaha jaane ka price p and number of stops s lage. But jab us path se gye destination
     // par toh hume destination tak jaane mai k se jyaada stops lage toh voh valid solution nhi hai, but problem is ki
     // price array mai price[x]=p ho chuka hai.
-    // Now suppose doosre path mai x tak jaana p1(p1>p) cos lagi and s1 (s1<s) stops lage. And finally dest tak apan
+    // Now suppose doosre path mai x tak jaana p1(p1>p) cost lagi and s1 (s1<s) stops lage. And finally dest tak apan
     // pahuch gye within k stops, esa path exists krta hai but process nhi hoga coz price[x]=p hai and is path mai
     // x tak pahuch ne ki price jyaada hai toh voh is path ko PQ mai daalega hi nhi
 
