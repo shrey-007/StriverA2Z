@@ -15,6 +15,5 @@ public class CountPartitionsWithGivenDifference {
 
      So question now becomes find number of subset with given sum((totalSum+d)/2)
      This question i have not solved because it was easy
-
      */
 }

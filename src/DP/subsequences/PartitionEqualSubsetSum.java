@@ -2,8 +2,11 @@ package DP.subsequences;
 
 public class PartitionEqualSubsetSum {
     /**
-     * This is same question as SubsetSumEqualToTarget , I have used the same tabulation function of that question
+     * Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the
+     * elements in both subsets is equal or false otherwise.
      * */
+    // This is same question as SubsetSumEqualToTarget , target is totalSum/2
+
     public boolean canPartition(int[] nums) {
         int sumOfAllElements=0;
         for(int i=0;i<nums.length;i++){

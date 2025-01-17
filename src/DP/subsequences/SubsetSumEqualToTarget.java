@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 public class SubsetSumEqualToTarget {
     /** DP 14 */
+    /**
+     * Given an array of positive integers arr[] and a value target, determine if there is a subset of the given array
+     * with sum equal to given target.
+     * */
     static Boolean isSubsetSum(int N, int arr[], int sum){
         return func(arr,sum,0);
     }

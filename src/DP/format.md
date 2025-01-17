@@ -23,4 +23,6 @@
 
 ### What i have observed is, ki DP ke mostly question subset/subsequence vaale hote hai subarray/substring vaale nhi 
 
+### Types of questions-:
+1. Count Problem-: Base case mai 1 return kro, negative base case mai 0. Also har call ke baad kuch add mat krna. func()+1 esa kuch mat krna. tuhe faith1+faith2 return karna hai.
   

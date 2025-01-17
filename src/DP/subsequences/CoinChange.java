@@ -31,8 +31,8 @@ public class CoinChange {
         }
 
         int faith1=(int)1e9;
-        // take
-        if(amount-coins[index]>=0)faith1=func(coins,index,amount-coins[index])+1;
+        // take and add 1 since we have taken one coin
+        if(amount-coins[index]>=0) faith1=func(coins,index,amount-coins[index])+1;
         // not take
         int faith2=func(coins,index+1,amount);
 
