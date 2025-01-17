@@ -16,8 +16,8 @@ public class LargestDivisibleSubset {
      * */
     /**
      * let arr = [1,4,2,8]
-     * - subsequence means ki take and not take karo but order is fixed means 1,4,8 is a subsequence bu 8,1,4 is not
-     *   subset means take and not take + aorder also don't matter means 8,1,4 is a subset here.
+     * - subsequence means ki take and not take karo but order is fixed means 1,4,8 is a subsequence buT 8,1,4 is not
+     *   subset means take and not take + order also don't matter means 8,1,4 is a subset here.
      *
      * - first sort the array-: {1,2,4,8}
      * - Now take 1.
@@ -27,7 +27,7 @@ public class LargestDivisibleSubset {
      * - Toh LIS mai apan take and not take kar rahe the and take tabhi kar rhe the jab current element previous element se bada ho
      * - Toh yaha bhi take and not take kro and take tabhi karo jab current element previous se divisible ho. Toh it is same code
      *
-     *
+     * WE CAN SORT THE ARRAY BECAUSE , WE HAVE TO FIND SUBSET, IN WHICH ORDER DON'T MATTER
      * */
 
     public List<Integer> largestDivisibleSubset(int[] nums) {
