@@ -27,7 +27,7 @@ public class LongestIncreasingSubsequence {
             return 0;
         }
 
-        // take, and increase number of characters by 1
+        // take, and increase number of elements by 1
         int faith1=Integer.MIN_VALUE;
         if(previousElement<arr[index]){
             faith1=func(arr,index+1,arr[index])+1;

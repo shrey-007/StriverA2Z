@@ -25,4 +25,8 @@
 
 ### Types of questions-:
 1. Count Problem-: Base case mai 1 return kro, negative base case mai 0. Also har call ke baad kuch add mat krna. func()+1 esa kuch mat krna. tuhe faith1+faith2 return karna hai.
-  
+
+### How to find answers
+1. kuch questions mai faith1 and faith2 ko answer previous call return nhi krta balki isi call mai f()+1 krke pata padta hai like LIS
+2. kuch mai faith1 and faith2 direct answers de dega
+3. kuch mai apan ko parameters mai hi ans dena padega and vahi parameter ko update krte rehna padega
