@@ -30,3 +30,4 @@
 1. kuch questions mai faith1 and faith2 ko answer previous call return nhi krta balki isi call mai f()+1 krke pata padta hai like LIS
 2. kuch mai faith1 and faith2 direct answers de dega
 3. kuch mai apan ko parameters mai hi ans dena padega and vahi parameter ko update krte rehna padega
+4. if you are using parametric recursion then ans is updated in parameter, if you are using functional recursion toh usme har call mai answer ko manipulate krna hai like f()+Math.abs(), f()+arr[index], etc. But if it is a count problem toh mat krna simply return f1+f2 and positive base case mai 1 return krna
