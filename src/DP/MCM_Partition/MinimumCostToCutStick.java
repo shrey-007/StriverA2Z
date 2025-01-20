@@ -12,7 +12,7 @@ public class MinimumCostToCutStick {
      *
      * Given an integer array cuts where cuts[i] denotes a position you should perform a cut at.
      *
-     * You should perform the cuts in order, you can change the order of the cuts as you wish.
+     * You can change the order of the cuts as you wish.
      *
      * The cost of one cut is the length of the stick to be cut, the total cost is the sum of costs of all cuts.
      * When you cut a stick, it will be split into two smaller sticks (i.e. the sum of their lengths is the length of
@@ -20,6 +20,9 @@ public class MinimumCostToCutStick {
      *
      * Return the minimum total cost of the cuts.
      * */
+
+    // so the question is ki tumhe cuts toh krne hai but it is a permutation question, ki konsa cut pehle kro and konsa baad mai
+    // it is not take and not-take. we have to take everyone.
      public int minCost(int n, int[] cuts) {
         // Include boundaries in cuts
         //  extendedCuts ka 0th element start of rod, last element end of rod, and beech ke elements are same
@@ -51,8 +54,32 @@ public class MinimumCostToCutStick {
 
         int minCost = Integer.MAX_VALUE;
 
+        // You can not cut anywhere, you can only cut at specific indices mentioned in cuts[] array
+
+        // the question is ki agar tumne ith jagah pr cut kr bhi diya toh ye kese aage ki calls mai pass kroge ki maine
+        // us jagah cut kr diya hai ab koi aur call mat cut krna. Since we have to cut at all indices toh ye kese pata karoge ki kon-kon si jagah esi hai jaha cut marna reh gaya hai
+        // To solve this problem we will use start and end.
+
+        // initially start=0, end=n.
+        // ab iterate kro over all options ki kaha cut kar skte hai, toh uske liye cuts[] array hai, but cuts array mai
+        // (start,end) hi cut kar skte hai uske alava saare cuts hogye. initially start=0, end=n.
+
+        // ab tumne suppose i par cut kara. Toh i ko kisi jagah store krne ki jagah since tumhe pata hai (start,i) and (i,end)
+        // koi cut nhi hai toh ye 2 calls kardo. kiuki cut i par laga hai toh (start,i) and (i,end) par koi cut nhi hai
+
+        // Remember start and end are exclusive(not taken)
+        // Toh we have solved our first problem ki ye kese pata kre ki kon se cuts bache hai
+
+        // Now ho get length of current rod
+        // start,end,i all are for the cut array.None of them is travesing on length of rod
+        // since start and end choose kara hai apan ne cuts mai se, means cuts[start] and cuts[end] index of rod
+        // par cut laga hai toh length is  cuts[end] - cuts[start]
+
+
         // Try cutting at every possible position between start and end
-        // cuts[end] - cuts[start] gives the length of the rod
+
+        // start, end are not index instead cuts[start], cuts[end] are the index jaha rod ko cut kara hai.
+        // that's why cuts[end] - cuts[start] gives the length of the rod
         for (int i = start + 1; i < end; i++) {
             int cost = cuts[end] - cuts[start]
                     + helper(cuts, start, i, dp)
