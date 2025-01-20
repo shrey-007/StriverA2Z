@@ -22,6 +22,7 @@ public class MinimumCostToCutStick {
      * */
      public int minCost(int n, int[] cuts) {
         // Include boundaries in cuts
+        //  extendedCuts ka 0th element start of rod, last element end of rod, and beech ke elements are same
         int[] extendedCuts = new int[cuts.length + 2];
         System.arraycopy(cuts, 0, extendedCuts, 1, cuts.length);
         extendedCuts[0] = 0;
@@ -40,6 +41,7 @@ public class MinimumCostToCutStick {
         return helper(extendedCuts, 0, extendedCuts.length - 1, dp);
     }
 
+    // it is similar to merge sort
     private int helper(int[] cuts, int start, int end, int[][] dp) {
         // Base case: No cuts needed
         if (start + 1 >= end) return 0;
@@ -50,6 +52,7 @@ public class MinimumCostToCutStick {
         int minCost = Integer.MAX_VALUE;
 
         // Try cutting at every possible position between start and end
+        // cuts[end] - cuts[start] gives the length of the rod
         for (int i = start + 1; i < end; i++) {
             int cost = cuts[end] - cuts[start]
                     + helper(cuts, start, i, dp)
