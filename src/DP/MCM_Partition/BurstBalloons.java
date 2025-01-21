@@ -18,6 +18,9 @@ public class BurstBalloons {
     // Ab subsequences mai toh index ke though iterate krte the, yaha kese iterate kroge, and kese pata padega ki konsa
     // balloon burst hogya hai and konsa bacha hai
 
+    // It is a difficult question
+
+
     public int maxCoins(int[] nums) {
         int n = nums.length;
         int[] extendedNums = new int[n + 2];
