@@ -61,6 +61,11 @@ public class BalancedBinaryTree {
      * but if the node is not balanced then it will return -1. If -1 is returned by any of the call means tree
      * is unbalanced toh -1 hi return krvaao*/
 
+    // problem ye hai ki apan har i node ke liye check karege left and right height and voh left,right height nikaalne
+    // ke liye neeche jaaega fir i par aakr bataega ki kya hai, fir vapis neeche jaaega neeche check krne
+    // toh 2 baar neeche jaa rha hai, basically height calculations baar baar hogi, toh dp array mai height
+    // store krlo this is the best approach
+
     public static boolean isBalanced2(Node node){
         return height2(node)!=-1;
     }

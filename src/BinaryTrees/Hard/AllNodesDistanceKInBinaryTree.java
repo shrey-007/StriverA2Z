@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
-  * Approach-: Jaruri nhi hai ki Target node root ho. Esa bhi ho skta hai ki target node kahi beech mai lie kr rhi ho.
+ * Approach-: Jaruri nhi hai ki Target node root ho. Esa bhi ho skta hai ki target node kahi beech mai lie kr rhi ho.
  *  Toh agar apan target node par and usse k distance door jaana hai toh ya toh left jaao left pointer ke through, ya right
  *  jaao rigth pointer ke through , ya fir uper ki taraf jaao. But uper jaane ka koi pointer nhi hai tree mai. Toh voh
  *  pointer khud se bana lo. Do a traversal on whole tree and store parent of each node
