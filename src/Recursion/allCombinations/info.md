@@ -1,1 +1,1 @@
-1. Permutation question are different. Subsequences, vaale mai koi element aaega koi nhi aaega esa hota tha,but order defined rehta tha. But yaha sab  elements aaege but order change hoga
+1. Permutation question are different. Subsequences, vaale mai koi element aaega koi nhi aaega esa hota tha,but order defined rehta tha. But yaha sab  elements aaege but order change hoga like see the question PrintAllPermutationsOfStringOrArray

@@ -13,3 +13,6 @@ return vaala kaam kr skta hai (only on object, not on primitive data types). Lik
 krna tha toh apan ne use object mai convert krke ans[1] , Parametrised recursion mai pass kiya tha jisse vo ans[1] update
 ho gya. It is recommended ki Parametrised recursion use kro, it is easy as compared to Functional. 
 3. Parameterised mai aage jaate hue ans milta hai and functinal mai vapis aate hue answer milta hai
+
+### Tips
+1. kabhi kabhi parameterised mai only ans lene se kaam nahi chalta , currentAns bhi lena padta hai. And positive base case mai apan currentAns ko ans mai add krte hai
