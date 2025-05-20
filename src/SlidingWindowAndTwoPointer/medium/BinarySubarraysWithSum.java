@@ -47,8 +47,12 @@ public class BinarySubarraysWithSum {
 
     /**
      * variable sliding window don't work on count questions.
-     * It can not find count of subarrays with sum equal to k, because jab sum==k hoga toh uske baad start++ kre ya end++ kre ni pata
-     * But it can work on count subarrays with sum lesser than or equal to k. Kiuki jab sum equal to k hoga toh sirf vo subarray count nhi hoga balki saare subarrays count hoge,and fir end++ kr denge
+     *
+     * It can not find count of subarrays with sum equal to k, because jab sum==k hoga toh uske baad start++ kre ya
+     * end++ kre ni pata
+     *
+     * But it can work on count subarrays with sum lesser than or equal to k. Kiuki jab sum equal to k hoga toh sirf vo
+     * subarray count nhi hoga balki saare subarrays count hoge,and fir end++ kr denge
      * */
 
     public int numSubarraysWithSum(int[] nums, int goal) {
@@ -71,6 +75,11 @@ public class BinarySubarraysWithSum {
                 sum=sum-nums[start];
                 start++;
             }
+
+            // yaha par aaye means ki sum<=goal toh agar start se end tak ke poore subarray ka sum <= goal hai toh
+            // voh saare subarrys jo start ke baad start hoge and end pr khatam hoge unke bhi sum<=goal hoga
+            // [start+1,end], [start+4,end], [start+5,end]....
+            // toh ese total end-start+1 sub-arrays hai
 
             ans=ans+end-start+1;
             end++;

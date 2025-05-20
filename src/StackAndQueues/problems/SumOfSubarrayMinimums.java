@@ -35,7 +35,9 @@ public class SumOfSubarrayMinimums {
 
     /**
      * Another optimal solution is-:
-     * The key observation is that for each element in the array, it acts as the minimum for several subarrays. To calculate the contribution of each element to the total sum, you need to determine how many subarrays include this element as the minimum.
+     * The key observation is that for each element in the array, it acts as the minimum for several subarrays.
+     * To calculate the contribution of each element to the total sum, you need to determine how many subarrays include
+     * this element as the minimum.
      *
      * If an element arr[i] has PSE[i] as its previous smaller or equal element and NSE[i] as its next smaller element:
      * The total number of subarrays where arr[i] is the minimum can be calculated as:
