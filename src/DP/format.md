@@ -13,7 +13,7 @@
 ### Steps to convert Memoization to Tabulation
 1. Initialise the same dp array used in Memoization
 2. Look at the base cases, initialise the dp array values by reading base cases.
-3. See how many times recursion calls will take, if n then ek for loop banalo 0 to n-1 ki(ignore base cases jinke answer already store kr liya hai).
+3. Recursion mai jo parameters change ho rhe hai, unki loops banao.like if index and lastIndex are changing toh 2 for loop chalao index and lastIndex ki
 4. recursion mai jaha call kari hai vaha calls mai f() ko dp[] se replace krdo
 5. Recursion mai jaha return kara hai end mai vaha return krne ki jagah dp[] mai store krlo 
 ### Can we reduce Space complexity of Tabulation

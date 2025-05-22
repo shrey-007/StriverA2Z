@@ -70,9 +70,6 @@ public class RottingOranges {
                     queue.offer(new Cell(neighbour_X_Cordinate,neighbour_Y_Cordinate, cell.rottenTime+1));
                 }
             }
-
-
-
         }
 
         if(numberOfFreshOranges!=0){return -1;}
@@ -81,6 +78,15 @@ public class RottingOranges {
     }
 
 }
+
+/*
+* Key Paints-:
+* 1. Har orange sirf ek hi baar Q mai gaya, kuiki ek baar gaya toh uske baad vo visited ho gya toh firse uspe ni jaaege
+* 2. 1st level pr sirf rotten oranges hoge Q mai
+* 3. Fir 1st level ke baad sir fresh oranges milege Q mai.
+* 4. Toh ja tak saare oranges process na ho jaye ans ni aaega
+* 5. Toh there is no early condition to stop the loop
+*   */
 
 class Cell{
     int x;

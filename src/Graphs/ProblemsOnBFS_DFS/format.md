@@ -9,7 +9,7 @@
 
 public void bfs(){
     
-    PriorityQueue<CustomClass> pq=new PriorityQueue<>();
+    Queue<CustomClass> pq=new ArrayDeque<>();
     
     // add the initial nodes in the priorityQueue, having some initial z
         
