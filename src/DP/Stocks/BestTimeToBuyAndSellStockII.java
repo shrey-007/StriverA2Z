@@ -12,7 +12,8 @@ import java.util.Arrays;
 
 /**
  * B=buy , S=sell , N= do nothing
- * Suppose array irregular hai , kabhi badh rha hai kabhi kam. Toh agar apan BSBSBSBS ese kre jisme kuch BS mai profit aaye and kuch BS mai loss ho ans overall profit nikaal le
+ * Suppose array irregular hai , kabhi badh rha hai kabhi kam. Toh agar apan BSBSBSBS ese kre jisme kuch BS mai profit
+ * aaye and kuch BS mai loss ho ans overall profit nikaal le
  * But esa bhi ho skta hai ki BNNNNNNS ans BS mai bhut profit kama liya
  * Toh kuch bhi ho skta hai , we have to try all possible thing
  * */

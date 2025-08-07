@@ -23,7 +23,8 @@ public class LongestStringChain {
     public int longestStrChain(String[] words) {
         // is quesiton mai likha nhi hai but examples ko dekh ke pata pada ki subsequence nhi subset nikalna hai
         // toh sort krdo array on basis of length of string
-        // kiuki apan ko chaiye ki 5 leeter ki string ke baad 6 vaali aaye esa na ho ki 6 letter vali a se start ho and 5 vaali x se toh 6 letter vali string pehle aajaye
+        // kiuki apan ko chaiye ki 5 leeter ki string ke baad 6 vaali aaye esa na ho ki 6 letter vali a se start ho
+        // 5 vaali x se toh 6 letter vali string pehle aajaye
         Arrays.sort(words, Comparator.comparingInt(String::length));
         return func(words,"",0);
     }
