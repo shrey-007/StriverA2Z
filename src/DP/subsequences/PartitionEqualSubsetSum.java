@@ -26,12 +26,15 @@ public class PartitionEqualSubsetSum {
         }
 
 
-        //  Now we have to find base case equivalent to if(index==arr.length){return false;} but apan ne dp, arr.length size ka hi banaya hai toh ye base case
+        //  Now we have to find base case equivalent to if(index==arr.length){return false;} but apan ne dp, arr.length
+        //  size ka hi banaya hai toh ye base case
         // nhi daal skte toh apan ko if(index==arr.length-1) ka base case sochna hai
         /** Suppose this is array {3,34,4,12,5,2} and target=9
-         *  Agar last element 2 hai and us time required target 5,1,12,.. hai toh subset nhi banega,subset tabhi banega jab required target 2 hoga
+         *  Agar last element 2 hai and us time required target 5,1,12,.. hai toh subset nhi banega,subset tabhi banega
+         *  jab required target 2 hoga
          * */
-        // Agar array ka last element 90 hai and target 7 hai toh array 8 size ka banega toh 90th index error dega isliye if mai check kr liya pehle
+        // Agar array ka last element 90 hai and target 7 hai toh array 8 size ka banega toh 90th index error dega
+        // isliye if mai check kr liya pehle
         if(arr[arr.length-1]<=sum)dp[arr.length-1][arr[arr.length-1]]=true;
 
         for (int index = arr.length-2; index >=0; index--) {

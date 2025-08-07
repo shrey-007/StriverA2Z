@@ -38,4 +38,4 @@
 | Count Problem   | return 1           | return 0                 | return sum of all calls |
  | Max Problem     |  return whatever asked | return Integer.MIN_VALUE | return max of all calls |
 | Min Problem     |  return whatever asked | return Integer.MAX_VALUE | return min of all calls |
-
+| find a condition exists or not| return true/false| return opposite of positive base case| return or / and of all calls|
