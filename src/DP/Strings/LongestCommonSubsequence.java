@@ -17,22 +17,6 @@ public class LongestCommonSubsequence {
     }
 
     public int func(String s1, String s2,int index1,int index2){
-//        if(index1==0 && index2==0){
-//            if(s1.charAt(index1)==s2.charAt(index2)){return 1;}
-//            return 0;
-//        }
-//        if(index1==0){
-//            char c1=s1.charAt(index1);
-//
-//            if(s2.indexOf(c1)!=-1){return 1;}
-//            return 0;
-//        }
-//        if(index2==0){
-//            char c2=s2.charAt(index2);
-//
-//            if(s1.indexOf(c2)!=-1){return 1;}
-//            return 0;
-//        }
 
         if(index1<0 || index2<0){return 0;}
 
