@@ -17,13 +17,24 @@ public class PrimsAgorithm {
      * <h2>In the below prims algorithm, why don't we mark the node visited , the moment we put it into the priority queue?</h2>
      *
      * <p>
-     * Multiple Entries with Different Costs: When a node is added to the priority queue, it is added with the cost (or weight) of reaching that node from its parent node. A single node can have multiple entries in the priority queue because there can be multiple edges connecting it to different nodes in the current Minimum Spanning Tree (MST) with different weights.
+     * Multiple Entries with Different Costs: When a node is added to the priority queue, it is added with the cost
+     * (or weight) of reaching that node from its parent node. A single node can have multiple entries in the priority
+     * queue because there can be multiple edges connecting it to different nodes in the current Minimum Spanning Tree
+     * (MST) with different weights.
      *
-     * Selecting the Minimum Edge: The key idea of Prim's algorithm is to always expand the MST by adding the smallest possible edge that connects a new node to the existing MST. If we marked a node as visited immediately when it is added to the queue, we would be locking in the first edge to that node, even if there might be a smaller edge that reaches the node later in the queue.
+     * Selecting the Minimum Edge: The key idea of Prim's algorithm is to always expand the MST by adding the smallest
+     * possible edge that connects a new node to the existing MST. If we marked a node as visited immediately when it is
+     * added to the queue, we would be locking in the first edge to that node, even if there might be a smaller edge
+     * that reaches the node later in the queue.
      *
-     * Ensuring the Correct MST: By only marking the node as visited when it is removed from the priority queue, we ensure that we have selected the smallest edge to that node. This approach allows the algorithm to potentially ignore longer paths to the node that arrive later in the priority queue. If a node is marked as visited when dequeued, it guarantees that we have found the shortest way to reach it from the current MST.
+     * Ensuring the Correct MST: By only marking the node as visited when it is removed from the priority queue, we
+     * ensure that we have selected the smallest edge to that node. This approach allows the algorithm to potentially
+     * ignore longer paths to the node that arrive later in the priority queue. If a node is marked as visited when
+     * dequeued, it guarantees that we have found the shortest way to reach it from the current MST.
      *
-     * Avoiding Redundant Processing: When a node is dequeued and found to be visited already (if (visited[currNode] == 1) continue;), it means that a shorter path to this node has already been processed. Hence, we can safely ignore this entry without any further processing.
+     * Avoiding Redundant Processing: When a node is dequeued and found to be visited already
+     * (if (visited[currNode] == 1) continue;), it means that a shorter path to this node has already been processed.
+     * Hence, we can safely ignore this entry without any further processing.
      * </p>
      *
      * <p>

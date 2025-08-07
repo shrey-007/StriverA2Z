@@ -39,9 +39,13 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
         List<Integer> inorderLeft=inorder.subList(0,currIndex);
         List<Integer> inorderRight=inorder.subList(currIndex+1,inorder.size());
 
-        List<Integer> preorderLeft=preorder.subList(1,preorder.size());
-        List<Integer> preorderRight=preorder.subList(2,preorder.size());
+        int nodesInLeftSubtree = inorderLeft.size();
 
+        List<Integer> preorderLeft=preorder.subList(1,1+nodesInLeftSubtree);
+        List<Integer> preorderRight=preorder.subList(1+nodesInLeftSubtree,preorder.size());
+
+        // this is important line, tum kese slice krna hai in,pre order voh toh kr liya but tree kese banake return kre
+        // iske liye ise dekho
         curr.left=func(preorderLeft,inorderLeft);
         curr.right=func(preorderRight,inorderRight);
 

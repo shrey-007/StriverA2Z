@@ -31,3 +31,11 @@
 2. kuch mai faith1 and faith2 direct answers de dega
 3. kuch mai apan ko parameters mai hi ans dena padega and vahi parameter ko update krte rehna padega
 4. if you are using parametric recursion then ans is updated in parameter, if you are using functional recursion toh usme har call mai answer ko manipulate krna hai like f()+Math.abs(), f()+arr[index], etc. But if it is a count problem toh mat krna simply return f1+f2 and positive base case mai 1 return krna
+
+
+| Type of Problem | Positive Base Case | Negative Base Case       | Normal Call |
+|-----------------|--------------------|--------------------------| ------------|
+| Count Problem   | return 1           | return 0                 | return sum of all calls |
+ | Max Problem     |  return whatever asked | return Integer.MIN_VALUE | return max of all calls |
+| Min Problem     |  return whatever asked | return Integer.MAX_VALUE | return min of all calls |
+
