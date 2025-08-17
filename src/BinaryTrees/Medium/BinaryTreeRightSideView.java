@@ -50,9 +50,28 @@ public class BinaryTreeRightSideView {
             }
         }
     }
-
-
 }
+
+/**
+ * Also note that right,left,top,bottom view is done using hashmap, where we store key as level and value as rightmost/
+ * topmost/bottommost node etc.
+ *
+ * But right boundary is different. It goes right if right is availabale, it will not go to left. And if right is not
+ * available then it will go to left
+ *
+ * Lets take an example -:
+ *        1
+ *      /   \
+ *     2     3
+ *    / \
+ *   6   7
+ *  /    \
+ * 8      9
+ *   here if you use rightboundary concept toh your result will be 1,3.
+ *   But actual result should be 1,3,7,9
+ *   Even if you do rightboundary()+addLeaves() still it will give 1,3,8,9. which is totally wrong.
+ *   The thing is going left only when right is not available does not work for right side view. Simple
+ * */
 
 class Pair2{
     int x;
