@@ -13,50 +13,56 @@ public class BinaryTreeRightSideView {
      * first node, milegi vahi rightmost node hogi coz call pehle right ko kra hai. Toh use store krlo. But point is ki
      * vaapis agar ith level pr gye and koi aur node milli jo ki rightmost ni hogi obv. toh usko store krne se kese roke.
      * */
-    public List<Integer> rightSideView(Node root) {
-        ArrayList<Integer> ans=new ArrayList<>();
-        func(root,0,ans);
-        return ans;
+    ArrayList<Integer> rightView(Node root) {
+         HashMap<Integer,Integer> hm = new HashMap<>();
+         bfs(root,hm);
+         ArrayList<Integer> horizontalLevels = new ArrayList<>(hm.keySet());
+         ArrayList<Integer> ans = new ArrayList<>();
+         Collections.sort(horizontalLevels);
+         for(int key: horizontalLevels){
+             ans.add(hm.get(key));
+         }
+         return ans;
     }
 
-    public static void func(Node root,int verticalLevel,ArrayList<Integer> ans){
+     void bfs(Node root,HashMap<Integer,Integer> hm){
+        // first insert right child then left child, so at each yth level you will encounter the rightmost node first
+        Queue<Pair2> queue = new ArrayDeque<>();
+        queue.offer(new Pair2(0,0,root));
 
-        if(root==null){return;}
-
-        // har verticalLevel ki rightmost node is list mai hogi , and sabse pehle ye line rightmost node hi execute krega
-        // suppose 0th level ki rightmost node mili but list size 0 hai means ki use abhi store nhi kra toh use store krlo
-        // ab suppose 0th level ki leftmost node mili tumhe kiuki iteration us pr bhi jaaegi, bhale hi baad mai jaaye lekin
-        // jaaegi toh pakka hai, toh list usko store na krle isliye ye condition lagai hai agar verticalLevel>ans.size() means
-        // ki us verticalLevel ki rightmost node already store krli hai toh use store mt kro
-        if(verticalLevel==ans.size()){ans.add(root.val);}
-
-        // pehle right jaao
-        func(root. right,verticalLevel+1,ans);
-        // phir left jaao
-        func(root.left,verticalLevel+1,ans);
+        while(!queue.isEmpty()){
+            Pair2 pair = queue.poll();
+            int x = pair.x;
+            int y = pair.y;
+            Node node = pair.node;
+            if(!hm.containsKey(y)){
+                // if hm does not contains key, means this is the first time we are in this y level and this is the
+                // rightmost node of this level
+                hm.put(y,node.val);
+            }
+            // go right
+            if(node.right!=null){
+                queue.offer(new Pair2(x+1,y+1,node.right));
+            }
+            // go left
+            if(node.left!=null){
+                queue.offer(new Pair2(x-1,y+1,node.left));
+            }
+        }
     }
 
 
+}
 
-    /**This code is giving wrong answer for the test case - [1,2,3,null,5,6]
-     * Output should be-: [1,3,6]
-     * but ye output aa rha hai-: [1,3,5]
-     * kiuki isme 5,6 same horizontal,vertical level pr hai toh us vertical level pr 5 store hua pehle fir jab iteration 6 pr gaya toh same vertical level dikha and same horizontalLevel
-     * dikha toh voh (pairInTreeMap.horizontalLevel<horizontalLevel) condition false hui toh voh update nhi hua toh condition mai equal to bhi lagado
-     * But since */
-
-    /**
-     * Can we do it using rightBoundaryTraversal?
-     * No you can't , this is the only way.
-     * Suppose Left view ki baat kr rhe hai
-     * See the picture, usme agar leftBoundaryTraversal lagaoge toh 1 2 4 5 print hoga bas
-     * But ye method use kroge toh 1 2 4 5 10 11 print hoga, reason is ki ye vaala method dono nodes pr jaata hai right,left
-     * bas pehle right pr jaata hai and dekhta hai ki y vertical level ki righmost node hai toh save krlo else agar left
-     * node hai toh jaaega tab bhi but ans mai save nhi karega
-     *
-     * */
-
-
+class Pair2{
+    int x;
+    int y;
+    Node node;
+    Pair2(int x,int y,Node node){
+        this.x=x;
+        this.y=y;
+        this.node=node;
+    }
 }
 
 
