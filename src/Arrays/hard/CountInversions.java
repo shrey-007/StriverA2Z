@@ -39,68 +39,68 @@ public class CountInversions {
 
     // method 2 we use mergeSort, watch striver video get how its working or if you can dry run mergeSort it will easy for you
 
-    private static int merge(int[] arr, int low, int mid, int high) {
+    static int inversionCount(int arr[]) {
+        // Code Here
+        return mergeSort(arr,0,arr.length-1);
+    }
 
-        ArrayList<Integer> temp = new ArrayList<>(); // temporary array
-        int left = low;      // starting index of left half of arr
-        int right = mid + 1;   // starting index of right half of arr
+    static int mergeSort(int arr[],int start,int end){
+        if(start>=end) return 0;
+        int mid = (start+end)/2;
+        int count = 0;
 
-        //Modification 1: cnt variable to count the pairs:
-        int cnt = 0;
+        count += mergeSort(arr,start,mid);
+        count += mergeSort(arr,mid+1,end);
+        count += merge(arr,start,mid,end);
+        return count;
+    }
 
-        //storing elements in the temporary array in a sorted manner//
+    static int merge(int arr[],int start,int mid,int end){
+        int count = 0;
+        int n = arr.length;
+        // start to mid is sorted and mid+1 to end is sorted
+        int left[] = new int[mid-start+1];
+        int right[] = new int[end-mid];
+        int n1 = mid-start+1;
+        int n2 = end-mid;
 
-        while (left <= mid && right <= high) {
-            if (arr[left] <= arr[right]) {
-                temp.add(arr[left]);
-                left++;
-            } else {
-                temp.add(arr[right]);
-                cnt += (mid - left + 1); //Modification 2
-                right++;
+        for(int i=0;i<n1;i++){
+            left[i] = arr[start+i];
+        }
+
+        for(int i=0;i<n2;i++){
+            right[i] = arr[mid+1+i];
+        }
+
+        int i=0;
+        int j=0;
+        int index = 0;
+        while(i<n1 && j<n2){
+            if(left[i]<=right[j]){
+                arr[start+index] = left[i];
+                i++;
+                index++;
+            }
+            else{
+                arr[start+index] = right[j];
+                j++;
+                index++;
+                count += (n1-i);
             }
         }
 
-        // if elements on the left half are still left //
-
-        while (left <= mid) {
-            temp.add(arr[left]);
-            left++;
+        while(i<n1){
+            arr[start+index] = left[i];
+            i++;
+            index++;
+        }
+        while(j<n2){
+            arr[start+index] = right[j];
+            j++;
+            index++;
         }
 
-        //  if elements on the right half are still left //
-        while (right <= high) {
-            temp.add(arr[right]);
-            right++;
-        }
-
-        // transfering all elements from temporary to arr //
-        for (int i = low; i <= high; i++) {
-            arr[i] = temp.get(i - low);
-        }
-        return cnt; // Modification 3
-    }
-
-    public static int mergeSort(int[] arr, int low, int high) {
-        int cnt = 0;
-        if (low >= high) return cnt;
-        int mid = (low + high) / 2 ;
-        cnt += mergeSort(arr, low, mid);  // left half
-        cnt += mergeSort(arr, mid + 1, high); // right half
-        cnt += merge(arr, low, mid, high);  // merging sorted halves
-        return cnt;
-    }
-
-    public static int numberOfInversions(int[] a, int n) {
-        // Count the number of pairs:
-        return mergeSort(a, 0, n - 1);
-    }
-
-    public static void main(String[] args) {
-        int[] a = {5, 4, 3, 2, 1};
-        int n = 5;
-        int cnt = numberOfInversions(a, n);
-        System.out.println("The number of inversions are: " + cnt);
+        return count;
     }
 
 }

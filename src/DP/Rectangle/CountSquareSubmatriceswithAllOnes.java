@@ -5,50 +5,10 @@ package DP.Rectangle;
  * */
 public class CountSquareSubmatriceswithAllOnes {
 
-    /**
-     * Brute Force Approach:
-     * <p>
-     * Traverse every element of the matrix.
-     * For every element, check if it can be the top-left corner of a square submatrix.
-     * For each possible size of the square (starting from 1x1), check if all the elements in that square submatrix are 1s.
-     * If they are, increment the count.
-     */
-
-    public int countSquares2(int[][] matrix) {
-        int rows = matrix.length;
-        int cols = matrix[0].length;
-        int count = 0;
-
-        // Traverse every element as the top-left corner
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                // Consider every possible square size
-                int maxSquareSize = Math.min(rows - i, cols - j);
-                for (int size = 1; size <= maxSquareSize; size++) {
-                    boolean isSquare = true;
-                    // Check if this square has all 1s
-                    for (int p = 0; p < size; p++) {
-                        for (int q = 0; q < size; q++) {
-                            if (matrix[i + p][j + q] != 1) {
-                                isSquare = false;
-                                break;
-                            }
-                        }
-                        if (!isSquare) break;
-                    }
-                    if (isSquare) {
-                        count++; // Increment count if the square is valid
-                    }
-                }
-            }
-        }
-
-        return count;
-    }
-
     // There are only few do on rectangles problem
     // try to create similar size dp array
     // We will not use recursion here as it will not be intuitive, we will use tabulation
+    // dp[i][j] denotes how many squares end at (i,j), means how many squares have their right bottom on (i,j)
 
 
     public int countSquares(int[][] matrix) {
@@ -64,6 +24,8 @@ public class CountSquareSubmatriceswithAllOnes {
 
 
         // first row and first col of matrix and dp will be same
+        // agar matrix[i][0] is 0 toh means their is no square ending at (i,0)
+        // agar matrix[i][0] is 1 , means their is only 1 square that (i,j) itself.
         for (int i = 0; i < rows; i++) {
             dp[i][0]=matrix[i][0];
         }
