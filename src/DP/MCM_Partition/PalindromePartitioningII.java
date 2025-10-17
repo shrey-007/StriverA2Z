@@ -7,6 +7,19 @@ public class PalindromePartitioningII {
      * Return the minimum cuts needed for a palindrome partitioning of s.
      * */
 
+    /**
+     * Intuition-:
+     * - bababcbadcede
+     * - now check whether we can partition at 0th index? we will be left with b , ababcbadcede. Left part is "b", which is a palindrome so yes we can partition, now you have to further partition the right spart, so pass it to function
+     * - another option is can be partiton at 1st index? "ba" and "babcbadcede", since left part is not a palindrome so no
+     * - can we partition at 2nd index? "bab" and "abcbadcede", yes we can, and pass the right part to further partition
+     * - so you have to take min of all these
+     *
+     * - in all these above cases, we assumed string starts with 0th index. suppose you parttion at 2nd index. so right part
+     * becomes "abcbadcede", now we have to perform partition on this string but it does not start with 0 index, its first character
+     * is 3rd index. so maintain a pointer index.
+     *
+     * */
     public int minCut(String s) {
         return func(s,0,s.length());
     }

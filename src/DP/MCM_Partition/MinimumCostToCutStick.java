@@ -57,7 +57,8 @@ public class MinimumCostToCutStick {
         // You can not cut anywhere, you can only cut at specific indices mentioned in cuts[] array
 
         // the question is ki agar tumne ith jagah pr cut kr bhi diya toh ye kese aage ki calls mai pass kroge ki maine
-        // us jagah cut kr diya hai ab koi aur call mat cut krna. Since we have to cut at all indices toh ye kese pata karoge ki kon-kon si jagah esi hai jaha cut marna reh gaya hai
+        // us jagah cut kr diya hai ab koi aur call mat cut krna. Since we have to cut at all indices toh ye kese pata
+        // karoge ki kon-kon si jagah esi hai jaha cut marna reh gaya hai
         // To solve this problem we will use start and end.
 
         // initially start=0, end=n.
@@ -71,7 +72,7 @@ public class MinimumCostToCutStick {
         // Toh we have solved our first problem ki ye kese pata kre ki kon se cuts bache hai
 
         // Now ho get length of current rod
-        // start,end,i all are for the cut array.None of them is travesing on length of rod
+        // start,end,i all are for the cut array.None of them is traversing on length of rod
         // since start and end choose kara hai apan ne cuts mai se, means cuts[start] and cuts[end] index of rod
         // par cut laga hai toh length is  cuts[end] - cuts[start]
 
