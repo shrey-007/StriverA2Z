@@ -10,14 +10,17 @@ public class PartitionArrayForMaximumSum {
      *
      * */
 
-    // this is same as palindromic partition
+    // this is same as palindromic partition2
     public int maxSumAfterPartitioning(int[] arr, int k) {
         return func(arr,0,k,arr.length);
     }
     // we have to partition the array starting from the index "index"
     public int func(int arr[],int index,int k,int n){
         if(index==n) return 0;
-        // we can partition from index to index+k
+        // we can make a partition of size 1,2,3,4,...k
+        // so this is the choice, partition size
+        // toh agar index se start krna hai parttion toh index,index+1,index+2...index+k-1, tak krna hoga
+
         int maxElement = arr[index];
         int currentSum = 0;
         int ans = 0;
