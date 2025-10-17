@@ -1,6 +1,7 @@
 package Graphs.MinimumSpanningTree_DisjointSet;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 public class MostStonesRemovedWithSameRowOrColumn {
@@ -22,34 +23,46 @@ public class MostStonesRemovedWithSameRowOrColumn {
      *
      *
      * */
-    public int removeStones(int[][] stones) {
-        int n=stones.length;
+     // Each connected group (via same row or column) must keep one stone (to maintain connectivity).
+     // So, answer = total stones - number of connected components.
+     public int removeStones(int[][] stones) {
+         int n = stones.length;
 
-//        maxRow and maxCol are initialized to find the maximum row and column indices among all stones.
-        int maxRow = 0;
-        int maxCol = 0;
-        for (int i = 0; i < n; i++) {
-            maxRow = Math.max(maxRow, stones[i][0]);
-            maxCol = Math.max(maxCol, stones[i][1]);
-        }
-        
-        DisjointSet ds = new DisjointSet(maxRow + maxCol + 1);
-        HashMap<Integer, Integer> stoneNodes = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            int nodeRow = stones[i][0];
-            int nodeCol = stones[i][1] + maxRow + 1;
-            ds.unionByRank(nodeRow, nodeCol);
-            stoneNodes.put(nodeRow, 1);
-            stoneNodes.put(nodeCol, 1);
-        }
+         // Step 1: Find maximum row and column index
+         int maxRow = 0, maxCol = 0;
+         for (int i = 0; i < n; i++) {
+             maxRow = Math.max(maxRow, stones[i][0]);
+             maxCol = Math.max(maxCol, stones[i][1]);
+         }
 
-        int cnt = 0;
-        for (Map.Entry<Integer, Integer> it : stoneNodes.entrySet()) {
-            if (ds.findUPar(it.getKey()) == it.getKey()) {
-                cnt++;
-            }
-        }
-        return n - cnt;
+         // Step 2: Create Disjoint Set of size (maxRow + maxCol + 1)
+         // +1 ensures unique separation between row and column node spaces
+         DisjointSet ds = new DisjointSet(maxRow + maxCol + 1);
 
-    }
+         // Step 3: Keep track of all nodes that are actually used
+         HashSet<Integer> stoneNodes = new HashSet<>();
+
+         // Step 4: For each stone, connect its row and column in DSU
+         for (int i = 0; i < n; i++) {
+             int rowNode = stones[i][0];
+             int colNode = stones[i][1] + maxRow + 1; // offset for column nodes
+
+             ds.unionByRank(rowNode, colNode);
+
+             stoneNodes.add(rowNode);
+             stoneNodes.add(colNode);
+         }
+
+         // Step 5: Count how many connected components exist
+         int componentCount = 0;
+         for (int node : stoneNodes) {
+             if (ds.findUPar(node) == node) {
+                 // If it’s a representative (root) in DSU, it means it’s the start of a connected component.
+                 componentCount++;
+             }
+         }
+
+         // Step 6: Stones that can be removed = total stones - number of components
+         return n - componentCount;
+     }
 }
