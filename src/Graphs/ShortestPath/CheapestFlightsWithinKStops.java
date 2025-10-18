@@ -10,12 +10,8 @@ import java.util.*;
  * If there is no such route, return -1.
  * */
 
-// This is dijkstra algorithm with some constraint ki hum k se jyaada stations nhi rakh skte. So the question is where
-// should we put the constraint? Should we put the stations in PQ only if the count of stations till that station is
-// less than k.
-// Let's check below code-:
-// Neeche vaale code mai PQ , price ke basis pr kaam kr raha hai
 
+// Neeche vaale code mai PQ , price ke basis pr kaam kr raha hai
 
 public class CheapestFlightsWithinKStops {
 
@@ -91,7 +87,6 @@ public class CheapestFlightsWithinKStops {
     // Also PQ bhale hi stop ke basis pr ho, but element PQ mai tabhi daalege jab price less ho. It is dijkstra
     // Since stops ek fixed amount(1) se hi badega hamesha, toh we don't need PQ , queue will suffice
 
-    // So practically this is not a dijkstra code, this is simple DFS
 
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
 

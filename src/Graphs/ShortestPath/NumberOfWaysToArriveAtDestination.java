@@ -128,7 +128,7 @@ public class NumberOfWaysToArriveAtDestination {
 
     // or there is another way, use modified Dijkstra-:
     /**
-     * he steps are as follows:
+     * the steps are as follows:
      *
      * Dijkstra’s Algorithm: Use a priority queue to maintain nodes based on the shortest time to reach them.
      * Distance Array: Maintain an array dist[] where dist[i] is the shortest time to reach node i from the source.

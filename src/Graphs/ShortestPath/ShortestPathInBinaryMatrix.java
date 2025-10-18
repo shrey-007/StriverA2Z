@@ -1,8 +1,6 @@
 package Graphs.ShortestPath;
 
-import java.util.Arrays;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 import java.util.PriorityQueue;
 
@@ -99,28 +97,51 @@ public class ShortestPathInBinaryMatrix {
     // mai se shortest dega but dijkstra bina all ways ways discover kre shortest path dega.
     // So dijkstra better
 
-    public int func(int grid[][],int row,int col,int visited[][]){
+    // Since har edge ka weight same hi hai 1, toh use BFS instead of Dijkstra
 
-        if(row==grid.length-1 && col==grid[0].length-1){return 0;}
+    public int shortestPathBinaryMatrix2(int[][] grid) {
+        int n = grid.length;
+        int m = grid[0].length;
+        if(grid[0][0]==1 || grid[n-1][m-1]==1) return -1;
 
-        // try all possible ways
-        int[] r = {1, -1, 0, 0, -1, -1, 1, 1};
-        int[] c = {0, 0, 1, -1, -1, 1, -1, 1};
-        int ans=Integer.MAX_VALUE;
 
-        for (int i = 0; i <8 ; i++) {
-            int neighbourX=row+r[i];
-            int neighbourY=col+c[i];
+        Queue<Cell> queue = new ArrayDeque<>();
+        int visited[][] = new int[n][m];
 
-            if(neighbourX>=0 && neighbourX<grid.length &&
-               neighbourY>=0 && neighbourY<grid[0].length &&
-               visited[neighbourX][neighbourY]==0 && grid[neighbourX][neighbourY]==0){
-                visited[neighbourX][neighbourY]=1;
-                ans=Math.min(ans,func(grid,neighbourX,neighbourY,visited)+1);
-                visited[neighbourX][neighbourY]=0;
+        queue.offer(new Cell(0,0,1));
+        visited[0][0] = 1;
+
+        while(!queue.isEmpty()){
+            Cell cell = queue.poll();
+            int r = cell.x;
+            int c = cell.y;
+            int stepsTaken = cell.steps;
+            if(r==n-1 && c==m-1) return stepsTaken;
+
+            int dx[] = {-1,-1,-1,1,1,1,0,0};
+            int dy[] = {0,1,-1,0,1,-1,1,-1};
+
+            for(int i=0;i<8;i++){
+                int newr = r+dx[i];
+                int newc = c+dy[i];
+                if(newr<n && newr>=0 && newc<m && newc>=0 && visited[newr][newc]==0){
+                    visited[newr][newc]=1;
+                    queue.offer(new Cell(newr,newc,stepsTaken+1));
+                }
             }
         }
 
-        return ans;
+        return -1;
+    }
+
+    class Cell{
+        int x;
+        int y;
+        int steps;
+        public Cell(int x,int y,int steps){
+            this.x = x;
+            this.y = y;
+            this.steps = steps;
+        }
     }
 }

@@ -17,9 +17,11 @@ public class NetworkDelayTime {
     // Dijkstra algo mai node ke neighbour ko daalte hai priority queue mai toh node ke neighbours pata hone chaiye, but ye
     // jo times array diya hai usme randomly data daala hai toh first create a adjacency list form it which contains src,dest,time
 
-    // Simple concept is ki k node se saare node jaane tak ka time nikaalo fir un times ka min nikaalo
-    // Dijkstra ek node k to another node u ka shortest path nhi balki node k to all nodes ka shortest path deta hai isliye
-    // we used dijkstra.
+    // simply source node se jis node tak pahuchne mai sabse jyaada time lagega vahi time answer hai, but we don't know
+    // ki konsi node hai jiska dist src se sabse jyaada hai, toh saari nodes ka dist nikaal lo src se, fir unka max le
+    // lena.
+    // Dijkstra ek node u to another node v ka shortest path nhi balki source node to all nodes ka shortest path deta
+    // hai isliye we used dijkstra.
     // Dijkstra is single source shortest path algorithm
 
     public int networkDelayTime(int[][] times, int n, int k) {
@@ -67,6 +69,8 @@ public class NetworkDelayTime {
         }
 
         // Now dist array is filled. dist[i] contains the min time to reach the ith node from k(src node)
+        // toh simply har node ke pahuchne ka time diya hai, jis node pe pahuchne ka mai time sabse jyaada lagega
+        // vahi time answer hai
         int ans = Integer.MIN_VALUE;
         for (int i = 0; i <n; i++) {
             if(dist[i]==Integer.MAX_VALUE){
