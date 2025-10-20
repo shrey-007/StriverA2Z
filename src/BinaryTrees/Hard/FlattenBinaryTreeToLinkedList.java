@@ -44,4 +44,46 @@ public class FlattenBinaryTreeToLinkedList {
             curr.right=nextNode;
         }
     }
+
+
+    // now if you are asked to not use extra space i.e you can't use the arraylist for preorder list
+    // I was asked this in gameskraft
+
+    /* Steps-:
+    / for every node u -: a) find its rightmost node in left subtree, left r
+    /                     b) connect r's right to current node(u)'s right i.e r.right = u.right
+                          c) make current's right , point to current's left i.e u.right = u.left
+                          d) make current's left null
+                          e) done for u, now go to another node, which node to go? well imagine it as a straight line if you have completed for u, you have to do for u.right
+    */
+
+    public void flatten2(Node root){
+
+        Node curr = root; // this is u
+
+        while(curr!=null){
+            // if its left subtree exists , find rightmost node in left subtree
+            if(curr.left!=null){
+                Node rightMostNodeInLeftTree = curr.left;
+                while (rightMostNodeInLeftTree.right!=null) rightMostNodeInLeftTree = rightMostNodeInLeftTree.right;
+                rightMostNodeInLeftTree.right = curr.right;
+                curr.right = curr.left;
+                curr.left = null;
+            }
+            curr = curr.right;
+        }
+    }
+
+    /*
+    *
+    * - If a node has a left subtree, find the rightmost node in that left subtree.
+
+      - Connect that rightmost node’s .right to the current node’s .right.
+
+      - Move the left subtree to the right (curr.right = curr.left).
+
+      - Nullify the left pointer (curr.left = null).
+
+      - Move to curr.right.
+* */
 }
