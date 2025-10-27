@@ -76,7 +76,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
                     hashSet.remove(s.charAt(start));
                     start++;
                 }
-                // means ki start and end pr same char aagye toh ab loop kahatam ho gyi pr abhi bhi duplicate entry hai
+                // means ki start and end pr same character aagye toh ab loop kahatam ho gyi pr abhi bhi duplicate entry hai
                 // coz start=end toh start++ ek baar aur kro
                 start++;
                 end++;

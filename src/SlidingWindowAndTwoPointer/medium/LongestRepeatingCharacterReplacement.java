@@ -20,7 +20,7 @@ public class LongestRepeatingCharacterReplacement {
         int ans=0;
         int maxFrequency=0;
 
-        int hashArray[]=new int[256];  // stores frequency of all 256 characters
+        int hashArray[]=new int[26];  // stores frequency of all 256 characters
 
         while (end<s.length()){
             char charAtEnd=s.charAt(end);
