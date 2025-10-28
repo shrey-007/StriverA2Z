@@ -62,3 +62,53 @@ public class WordSearch {
         return flag;
     }
 }
+
+
+class AnotherMethod{
+    // This is another way to do this question ,and this is easy one
+    public boolean exist(char[][] board, String word) {
+        // the problem is we don't know the starting point
+        int n = board.length;
+        int m = board[0].length;
+
+        // we don't know the starting point, so consider every cell as starting
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                boolean ans = func(i,j,new int[n][m],board,n,m,word,0);
+                if(ans) return true;
+            }
+        }
+
+        return false;
+    }
+
+    // r,c and index are changing
+    // instead of storing whole word, we just store current index. if index i, means 0 to i-1 already match kr gaya hai
+    // i to n-1 match krna hai
+    public boolean func(int r,int c,int visited[][],char[][] board,int n,int m,String targetWord,int index){
+        if(index==targetWord.length()) return true;
+        if(r<0 || c<0 || r>=n || c>=m || visited[r][c]==1) return false;
+
+        char curr = board[r][c];
+        if(curr!=targetWord.charAt(index)) return false;
+        visited[r][c] = 1;
+
+        // we can go left,up,down,right
+        int dx[] = {-1,1,0,0};
+        int dy[] = {0,0,1,-1};
+
+        boolean ans = false;
+
+        for(int i=0;i<4;i++){
+            int newR = r+dx[i];
+            int newC = c+dy[i];
+            boolean faith = func(newR,newC,visited,board,n,m,targetWord,index+1);
+            // any of the return true, then return true
+            if(faith) return true;
+        }
+
+        visited[r][c] = 0;
+        // none combination return true, so return false
+        return false;
+    }
+}
