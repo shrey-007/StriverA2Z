@@ -4,6 +4,12 @@ import LinkedList.implementation.singly.Node;
 
 public class ReverseNodesInKGroup {
     /** Pure Brute Force */
+    /*
+    * why are we disconnecting the links?
+    * see we have to reverse a list from start to end position. We can directly pass start pointer, and it will reverse
+    * the whole list starting from start to the end. It will not stop at end. So we better disconnect it before sending it
+    * to reverse, and then connect later on.
+    * */
 
     public Node reverseKGroup(Node head, int k) {
         Node temp = head;
