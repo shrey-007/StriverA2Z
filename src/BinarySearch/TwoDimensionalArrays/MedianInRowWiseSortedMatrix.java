@@ -1,96 +1,72 @@
 package BinarySearch.TwoDimensionalArrays;
 
-import java.util.PriorityQueue;
-
-class Pair implements Comparable<Pair>{
-    int row;
-
-    int col;
-    int value;
-
-    public Pair(int row, int col, int value) {
-        this.row = row;
-        this.col = col;
-        this.value = value;
-    }
-
-    @Override
-    public int compareTo(Pair o) {
-        return this.value-o.value;
-    }
-}
 /**
  * Given a row wise sorted matrix of size R*C where R and C are always odd, find the median of the matrix.
  * */
 public class MedianInRowWiseSortedMatrix {
-    public static int median(int matrix[][]){
 
-        PriorityQueue<Pair> priorityQueue=new PriorityQueue<>();
-
-        for (int i = 0; i < matrix.length; i++) {
-            priorityQueue.add(new Pair(i,0,matrix[i][0]));
-        }
-
-        int count=0;
-
-        while (count!=(matrix.length*matrix[0].length)/2+1){
-            Pair pair=priorityQueue.poll();
-            int row=pair.row;
-            int col=pair.col;
-            count++;
-            col++;
-            if(col<matrix[0].length){
-                priorityQueue.add(new Pair(row,col,matrix[row][col]));
-            }
-        }
-
-        return priorityQueue.poll().value;
-
-    }
-
-    public static int median2(int matrix[][],int m,int n){
+    public int median(int matrix[][], int m, int n) {
         int low = Integer.MAX_VALUE, high = Integer.MIN_VALUE;
 
-        // point low to min element of matrix, high to max element of matrix
-        // since matrix is row wise sorted toh min element first column mai and max element last column mai milega
+        // Step 1: Determine the search space for median.
+        // Since each row is sorted, the smallest element is in the first column,
+        // and the largest is in the last column of some row.
         for (int i = 0; i < m; i++) {
-            low = Math.min(low, matrix[i][0]);
-            high = Math.max(high, matrix[i][n - 1]);
+            low = Math.min(low, matrix[i][0]);       // minimum element in matrix
+            high = Math.max(high, matrix[i][n - 1]); // maximum element in matrix
         }
 
-        int req = (n * m) / 2;
+        // Step 2: Binary search on the value range [low, high]
+        // The median is the smallest number for which there are more than (n*m)/2 elements smaller or equal to it.
+        int req = (n * m) / 2; // number of elements on the "left side" of the median in sorted order
+
         while (low <= high) {
             int mid = (low + high) / 2;
+
+            // Count how many numbers are <= mid in the matrix
             int smallEqual = countSmallEqual(matrix, m, n, mid);
-            if (smallEqual <= req) low = mid + 1;
-            else high = mid - 1;
+
+            // If there are <= req elements <= mid,
+            // that means the true median must be greater than mid
+            // (we haven't yet reached enough elements to cross the halfway point)
+            if (smallEqual <= req)
+                low = mid + 1; // go right
+            else
+                high = mid - 1; // go left
         }
+
+        // 'low' will end up being the smallest number such that
+        // more than half the elements are smaller than or equal to it — i.e., the median.
         return low;
     }
 
-    static int countSmallEqual(int[][] matrix, int m, int n, int x) {
+    public int countSmallEqual(int[][] matrix, int m, int n, int x) {
         int cnt = 0;
+        // For each row (which is sorted), count how many elements are <= x using upper bound
         for (int i = 0; i < m; i++) {
             cnt += upperBound(matrix[i], x, n);
         }
         return cnt;
     }
 
-    static int upperBound(int[] arr, int x, int n) {
+    // Custom implementation of upperBound()
+// It returns the index of the first element strictly greater than x in arr[]
+// So the count of elements <= x is exactly that index.
+    public int upperBound(int[] arr, int x, int n) {
         int low = 0, high = n - 1;
-        int ans = n;
+        int ans = n; // if no element > x, then count = n
 
         while (low <= high) {
             int mid = (low + high) / 2;
-            // maybe an answer
+
             if (arr[mid] > x) {
-                ans = mid;
-                // look for a smaller index on the left
-                high = mid - 1;
+                ans = mid;       // potential upper bound found
+                high = mid - 1;  // but check if there's a smaller index that also satisfies
             } else {
-                low = mid + 1; // look on the right
+                low = mid + 1;   // arr[mid] <= x → need to search right
             }
         }
         return ans;
     }
+
 }
