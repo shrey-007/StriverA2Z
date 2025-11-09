@@ -19,7 +19,7 @@ public class CourseScheduleII {
     // This question is combination of 2 question, first we need to find whether we can complete all courses or not(i.e
     // whether the prerequisite graph contains cycle or not, which is Course Schedule I)
 
-    // Also if it does not contains the cycle , then find the linear ordering.
+    // Also if it does not contain the cycle , then find the linear ordering.
     // We can first do apply the cycle detection in directed graph algo first to detect cycles and then find linear ordering
     // but since both are dfs traversal toh dono ko ek hi baar mai kr diya, we can do individually also
     public int[] findOrder(int numCourses, int[][] prerequisites) {
